@@ -9,8 +9,7 @@ import '../utils/constants.dart';
 class GoldApiService {
   final Dio _dio;
   
-  // TODO: Replace with your actual API key from https://www.goldapi.io/
-  static const String _apiKey = 'YOUR_API_KEY_HERE';
+  static const String _apiKey = 'goldapi-c8bfcdd897d3aa82798ddfefc685eb5c-io';
   
   GoldApiService() : _dio = Dio(BaseOptions(
     baseUrl: ApiConfig.baseUrl,

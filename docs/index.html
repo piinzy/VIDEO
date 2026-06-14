@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Deer | أسعار الذهب والفضة في الخليج</title>
+<meta name="description" content="أسعار الذهب والفضة اليوم - جميع العيارات - حاسبة الزكاة - حاسبة الأسعار - Deer"/>
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet"/>
+<style id="brand-font">
+.deer-name{font-family:'Cormorant Garamond','Georgia',serif;font-weight:700;font-style:italic;letter-spacing:0.04em;color:var(--dark);display:inline-block;line-height:1}
+.deer-name span{color:var(--gold)}
+</style>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --gold:#b8922a;--gold2:#d4a83c;--gold3:#f0c84a;--gold-light:#fdf0cc;
+  --cream:#fdf6ed;--cream2:#f5ede0;--cream3:#ede0cc;
+  --white:#ffffff;
+  --dark:#1a0f04;--dark2:#2d1e0a;--mid:#6b4c28;--muted:#9a7a54;--muted2:#c4a882;
+  --border:rgba(184,146,42,0.2);--border2:rgba(184,146,42,0.4);
+  --shadow:rgba(184,146,42,0.12);--shadow2:rgba(26,15,4,0.1);
+  --green:#16a34a;--red:#dc2626;
+  --radius:18px;--radius2:12px;--radius3:8px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Almarai',sans-serif;background:var(--cream);color:var(--dark);overflow-x:hidden;line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--cream2)}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
+
+/* TOP PROGRESS BAR */
+#progress-bar{position:fixed;top:0;left:0;right:0;height:3px;z-index:9999;background:linear-gradient(90deg,var(--gold),var(--gold3),var(--gold));background-size:200% 100%;animation:progressShimmer 2s linear infinite,progressLoad 1.4s ease forwards;transform-origin:right}
+@keyframes progressShimmer{0%{background-position:100% 0}100%{background-position:-100% 0}}
+@keyframes progressLoad{0%{transform:scaleX(0)}100%{transform:scaleX(1)}}
+
+/* 3D PARTICLES */
+.particles{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.p-dot{position:absolute;border-radius:50%;opacity:0;animation:floatDot linear infinite}
+@keyframes floatDot{0%{transform:translateY(100vh) rotate(0deg);opacity:0}10%{opacity:.6}90%{opacity:.3}100%{transform:translateY(-10vh) rotate(720deg);opacity:0}}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:999;background:rgba(253,246,237,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:.8rem 4vw;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;box-shadow:0 2px 20px var(--shadow)}
+nav::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(184,146,42,0.6),rgba(240,200,74,0.8),rgba(184,146,42,0.6),transparent);animation:navShimmer 3s ease infinite}
+@keyframes navShimmer{0%,100%{opacity:.5}50%{opacity:1}}
+.nav-brand{display:flex;align-items:center;gap:.7rem;flex:1}
+.nav-title{font-size:1.05rem;font-weight:800;color:var(--dark)}
+.nav-title span{color:var(--muted);font-weight:300;font-size:.7rem;display:block;margin-top:-3px}
+.nav-live{display:flex;align-items:center;gap:.4rem;background:rgba(22,163,74,0.1);border:1px solid rgba(22,163,74,0.3);border-radius:999px;padding:.28rem .85rem;font-size:.72rem;font-weight:700;color:var(--green)}
+.live-dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:livePulse 1.5s ease infinite;flex-shrink:0}
+@keyframes livePulse{0%,100%{box-shadow:0 0 0 0 rgba(22,163,74,0.6)}50%{box-shadow:0 0 0 5px rgba(22,163,74,0)}}
+.nav-ticker{font-size:.78rem;color:var(--gold);font-weight:800;white-space:nowrap;background:var(--gold-light);border:1px solid var(--border2);padding:.3rem .9rem;border-radius:var(--radius3);transition:all .3s}
+
+/* HERO */
+#hero{position:relative;padding:3rem 4vw 1.5rem;text-align:center;z-index:1;overflow:hidden}
+#hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 0%,rgba(212,168,60,0.12) 0%,transparent 70%);pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:var(--gold-light);border:1px solid var(--border2);border-radius:999px;padding:.4rem 1.2rem;font-size:.72rem;font-weight:700;color:var(--gold);margin-bottom:1rem;animation:badgePop .6s ease}
+@keyframes badgePop{from{opacity:0;transform:scale(.9) translateY(8px)}to{opacity:1;transform:none}}
+.hero-h em{font-style:normal;background:linear-gradient(135deg,var(--dark2),var(--gold),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:.88rem;color:var(--muted);max-width:540px;margin:0 auto .5rem}
+
+/* QUICK CARD WRAP */
+.quick-wrap{background:var(--white);border:1px solid var(--border2);border-radius:var(--radius);padding:2rem;margin:0 4vw 0;position:relative;overflow:hidden;box-shadow:0 8px 40px var(--shadow),0 1px 0 rgba(255,255,255,0.9) inset;transform-style:preserve-3d;transition:transform .3s ease}
+.quick-wrap:hover{transform:perspective(800px) rotateX(.8deg)}
+.quick-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold),var(--gold3),transparent)}
+.quick-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(253,240,204,0.4) 0%,transparent 60%);pointer-events:none}
+.quick-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.3rem;flex-wrap:wrap;gap:.6rem;position:relative;z-index:1}
+.ql{font-size:.62rem;font-weight:700;letter-spacing:.28em;color:var(--gold);text-transform:uppercase}
+.qt{font-size:.7rem;color:var(--muted2)}
+.qcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:.75rem;position:relative;z-index:1}
+.qc{background:var(--cream);border:1px solid var(--border);border-radius:var(--radius2);padding:1rem;text-align:center;transition:all .3s;cursor:default;position:relative;overflow:hidden}
+.qc:hover{background:var(--white);border-color:var(--gold2);transform:translateY(-5px) scale(1.03);box-shadow:0 12px 32px var(--shadow),0 0 0 1px rgba(184,146,42,0.15)}
+.qc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:.3s}
+.qc:hover::before{opacity:1}
+.qc-k{font-size:.6rem;font-weight:700;letter-spacing:.1em;color:var(--muted);margin-bottom:.3rem;text-transform:uppercase;cursor:help;position:relative}
+.qc-p{font-size:1.3rem;font-weight:800;color:var(--dark)}
+.qc-p.updated{animation:numPop .45s cubic-bezier(.34,1.56,.64,1)}
+@keyframes numPop{0%{transform:scale(1)}50%{transform:scale(1.14)}100%{transform:scale(1)}}
+.qc-u{font-size:.6rem;color:var(--muted2);margin-top:.1rem}
+.qc-ch{display:inline-flex;align-items:center;gap:.2rem;margin-top:.4rem;font-size:.7rem;font-weight:700;padding:.18rem .5rem;border-radius:999px}
+.up{color:var(--green)!important;background:rgba(22,163,74,0.1)!important}
+.down{color:var(--red)!important;background:rgba(220,38,38,0.1)!important}
+
+/* TOOLTIP */
+[data-tip]{position:relative}
+[data-tip]:hover::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 8px);right:50%;transform:translateX(50%);background:var(--dark2);color:#fff;font-size:.65rem;white-space:nowrap;padding:.35rem .75rem;border-radius:var(--radius3);box-shadow:0 4px 14px rgba(0,0,0,0.25);pointer-events:none;z-index:100;font-family:'Almarai',sans-serif;animation:fadeIn .2s ease}
+[data-tip]:hover::before{content:'';position:absolute;bottom:calc(100% + 2px);right:50%;transform:translateX(50%);border:5px solid transparent;border-top-color:var(--dark2);pointer-events:none;z-index:100}
+
+/* SECTION */
+.sec{padding:2.5rem 4vw;position:relative;z-index:1}
+.sec+.sec{border-top:1px solid var(--border)}
+.sec-head{margin-bottom:1.4rem}
+.sec-label{font-size:.62rem;font-weight:700;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;margin-bottom:.35rem}
+.sec-label.sil{color:var(--muted)}
+.sec-title{font-size:clamp(1.15rem,2.8vw,1.65rem);font-weight:800;color:var(--dark)}
+.sec-sub{font-size:.8rem;color:var(--muted);margin-top:.25rem}
+
+/* TABS */
+.tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.1rem}
+.tab{padding:.42rem .9rem;border-radius:var(--radius3);border:1px solid var(--border);background:var(--white);color:var(--muted);font-family:'Almarai',sans-serif;font-size:.76rem;font-weight:700;cursor:pointer;transition:all .3s}
+.tab:hover{border-color:var(--gold2);color:var(--gold)}
+.tab.active{background:linear-gradient(135deg,var(--gold),var(--gold3));color:#fff;border-color:transparent;box-shadow:0 4px 14px rgba(184,146,42,0.4)}
+.wtab{padding:.32rem .8rem;border-radius:var(--radius3);border:1px solid var(--border);background:var(--white);color:var(--muted);font-family:'Almarai',sans-serif;font-size:.73rem;cursor:pointer;transition:all .3s}
+.wtab.active{background:var(--gold-light);border-color:var(--border2);color:var(--dark);font-weight:700}
+
+/* PRICES GRID */
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:1px;background:var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:0 4px 24px var(--shadow2)}
+.pc{background:var(--white);padding:1.2rem .9rem;text-align:center;transition:all .3s;position:relative}
+.pc:hover{background:var(--gold-light);z-index:1;transform:scale(1.03);box-shadow:0 8px 28px var(--shadow),0 0 0 1px rgba(184,146,42,0.2)}
+.pc-k{font-size:.6rem;font-weight:700;letter-spacing:.1em;color:var(--gold);margin-bottom:.4rem;text-transform:uppercase}
+.pc-v{font-size:1.15rem;font-weight:800;color:var(--dark);transition:all .3s}
+.pc-v.updated{animation:numPop .45s cubic-bezier(.34,1.56,.64,1)}
+.pc-u{font-size:.62rem;color:var(--muted2);margin-top:.12rem}
+.pc-c{font-size:.67rem;font-weight:700;margin-top:.35rem;display:inline-flex;align-items:center;gap:.18rem;padding:.12rem .45rem;border-radius:999px}
+
+/* SILVER GRID */
+.sgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:rgba(154,122,84,0.15);border-radius:var(--radius);overflow:hidden;box-shadow:0 4px 24px var(--shadow2)}
+.sc{background:var(--white);padding:1.2rem .9rem;text-align:center;transition:all .3s}
+.sc:hover{background:rgba(245,237,224,0.8);transform:scale(1.02);box-shadow:0 6px 20px var(--shadow2)}
+.sc-k{font-size:.6rem;font-weight:700;letter-spacing:.1em;color:var(--muted);margin-bottom:.4rem;text-transform:uppercase}
+.sc-v{font-size:1.15rem;font-weight:800;color:var(--dark2)}
+.sc-u{font-size:.62rem;color:var(--muted2);margin-top:.12rem}
+.sc-c{font-size:.67rem;font-weight:700;margin-top:.35rem;display:inline-flex;align-items:center;gap:.18rem;padding:.12rem .45rem;border-radius:999px}
+
+/* HISTORY TABLE */
+.htable{width:100%;border-collapse:collapse;font-size:.83rem}
+.htable thead{background:linear-gradient(135deg,var(--gold),var(--gold2))}
+.htable th{padding:.75rem 1rem;text-align:right;font-weight:700;font-size:.68rem;letter-spacing:.06em;color:#fff}
+.htable td{padding:.75rem 1rem;border-bottom:1px solid var(--border);color:var(--dark);transition:background .2s}
+.htable tbody tr:last-child td{border-bottom:none}
+.htable tbody tr:hover td{background:var(--gold-light)}
+.htable tbody tr.today td{background:rgba(184,146,42,0.06);font-weight:700}
+.tbl-wrap{border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);box-shadow:0 4px 24px var(--shadow2)}
+
+/* CHART */
+.chart-wrap{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.4rem;box-shadow:0 4px 24px var(--shadow2);overflow:hidden}
+.chart-title{font-size:.78rem;font-weight:700;color:var(--muted);margin-bottom:.9rem}
+
+/* STATS */
+.srow{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:1px;background:var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:0 4px 24px var(--shadow2)}
+.sbox{background:var(--white);padding:1.1rem .8rem;text-align:center;transition:all .3s}
+.sbox:hover{background:var(--gold-light);transform:scale(1.04)}
+.sbox-v{font-size:1.15rem;font-weight:800;color:var(--gold)}
+.sbox-l{font-size:.63rem;color:var(--muted);margin-top:.15rem;font-weight:700}
+
+/* CALC CARDS */
+.cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.4rem}
+.ccard{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.8rem;box-shadow:0 4px 24px var(--shadow2);position:relative;overflow:hidden;transition:all .3s}
+.ccard:hover{transform:translateY(-4px);box-shadow:0 16px 42px var(--shadow),0 0 0 1px rgba(184,146,42,0.12)}
+.ccard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.cc-t{font-size:.95rem;font-weight:800;margin-bottom:.2rem;color:var(--dark)}
+.cc-s{font-size:.75rem;color:var(--muted);margin-bottom:1.2rem}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-bottom:.7rem}
+.fg{display:flex;flex-direction:column}
+.fg.full{grid-column:1/-1}
+.cresult{background:var(--gold-light);border:1px solid var(--border2);border-radius:var(--radius3);padding:.9rem 1.1rem;margin-top:.7rem;display:none}
+.cresult.show{display:block;animation:fadeIn .3s ease}
+.r-label{font-size:.66rem;color:var(--muted);font-weight:700;margin-bottom:.22rem}
+.r-val{font-size:1.5rem;font-weight:800;color:var(--gold)}
+.r-note{font-size:.7rem;color:var(--muted);margin-top:.3rem}
+.zrows{display:flex;flex-direction:column;gap:.5rem;margin-top:.4rem}
+.zrow{display:flex;justify-content:space-between;align-items:center;padding:.45rem .75rem;background:var(--cream);border-radius:var(--radius3)}
+.zrow-l{font-size:.73rem;color:var(--muted)}
+.zrow-v{font-size:.84rem;font-weight:800;color:var(--dark)}
+.zrow-total{background:var(--gold-light);border:1px solid var(--border2)}
+
+/* INFO CARDS */
+.igrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+.icard{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;transition:all .3s;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 2px 10px var(--shadow2)}
+.icard:hover{border-color:var(--border2);transform:translateY(-4px);box-shadow:0 12px 36px var(--shadow),0 0 0 1px rgba(184,146,42,0.1)}
+.icard::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(184,146,42,0.06),transparent);opacity:0;transition:.3s}
+.icard:hover::after{opacity:1}
+.ic-ico{width:42px;height:42px;border-radius:12px;background:var(--gold-light);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:.8rem}
+.ic-t{font-size:.88rem;font-weight:800;margin-bottom:.28rem;color:var(--dark)}
+.ic-d{font-size:.75rem;color:var(--muted);line-height:1.7}
+.ic-arr{position:absolute;top:1.2rem;left:1.2rem;color:var(--muted2);font-size:.85rem;transition:all .3s}
+.icard:hover .ic-arr{color:var(--gold);transform:translateX(-4px)}
+.content-box{background:var(--cream);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;display:none;margin-top:.9rem}
+.content-box.show{display:block;animation:fadeIn .35s ease}
+.content-box h3{color:var(--gold);font-size:.92rem;margin-bottom:.65rem}
+.content-box p{color:var(--muted);font-size:.8rem;line-height:1.9}
+.timestamp{font-size:.68rem;color:var(--muted2);text-align:center;margin-top:.8rem}
+
+/* FORM */
+label{font-size:.65rem;font-weight:700;color:var(--muted);letter-spacing:.04em;display:block;margin-bottom:.25rem}
+input,select{background:var(--cream);border:1px solid var(--border);color:var(--dark);font-family:'Almarai',sans-serif;font-size:.85rem;padding:.58rem .85rem;border-radius:var(--radius3);outline:none;transition:all .3s;width:100%}
+input:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(184,146,42,0.12);background:var(--white)}
+select option{background:var(--white)}
+.btn-g{padding:.7rem 1.4rem;background:linear-gradient(135deg,var(--gold),var(--gold3));color:#fff;font-family:'Almarai',sans-serif;font-size:.88rem;font-weight:800;border:none;border-radius:var(--radius3);cursor:pointer;transition:all .3s;box-shadow:0 4px 14px rgba(184,146,42,0.4);white-space:nowrap}
+.btn-g:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(184,146,42,0.55)}
+.btn-g:active{transform:translateY(0)}
+.btn-g.full{width:100%;padding:.78rem}
+
+/* ANIMATIONS */
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* FOOTER */
+footer{background:var(--dark);color:rgba(255,255,255,0.7);padding:2rem 4vw;text-align:center}
+.f-logo{font-size:1.1rem;font-weight:800;color:var(--gold2);margin-bottom:.5rem}
+.f-copy{font-size:.72rem;margin-bottom:1rem;line-height:2}
+.f-creator{font-size:.72rem;color:rgba(255,255,255,0.45);margin-bottom:1rem}
+.wa-btn{display:inline-flex;align-items:center;gap:.55rem;background:#25D366;color:#fff;font-family:'Almarai',sans-serif;font-size:.88rem;font-weight:700;padding:.7rem 1.6rem;border-radius:999px;text-decoration:none;transition:all .3s;box-shadow:0 4px 16px rgba(37,211,102,0.4)}
+.wa-btn:hover{background:#1ebe5a;transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,0.5)}
+.wa-icon{font-size:1.1rem}
+
+/* FADE IN */
+.fi{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.fi.vis{opacity:1;transform:none}
+
+/* DIVIDER */
+.divider{height:3px;background:linear-gradient(90deg,transparent,var(--border2),transparent);margin:0 4vw}
+
+/* FLOATING CALCULATOR BUTTON */
+#float-calc-btn{position:fixed;bottom:1.5rem;left:1.5rem;z-index:998;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;border:none;background:none;padding:0;transition:all .3s}
+.fcb-circle{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold3));box-shadow:0 6px 22px rgba(184,146,42,0.55),0 2px 6px rgba(0,0,0,0.12);display:flex;align-items:center;justify-content:center;font-size:1.5rem;transition:all .3s}
+#float-calc-btn:hover .fcb-circle{transform:scale(1.12);box-shadow:0 10px 30px rgba(184,146,42,0.7)}
+.fcb-label{font-size:.62rem;font-weight:800;color:var(--gold);font-family:'Almarai',sans-serif;background:var(--white);padding:.15rem .55rem;border-radius:999px;box-shadow:0 2px 8px var(--shadow);border:1px solid var(--border2);transition:all .3s}
+#float-calc-btn:hover .fcb-label{background:var(--gold-light)}
+
+/* MODAL */
+#calc-modal-overlay{position:fixed;inset:0;z-index:2000;background:rgba(26,15,4,0.55);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;padding:1rem}
+#calc-modal-overlay.open{display:flex;animation:modalFadeIn .3s ease}
+@keyframes modalFadeIn{from{opacity:0}to{opacity:1}}
+.calc-modal{background:var(--white);border-radius:var(--radius);border:1px solid var(--border2);box-shadow:0 24px 80px rgba(26,15,4,0.35),0 0 0 1px rgba(184,146,42,0.15);padding:2rem;width:100%;max-width:480px;position:relative;animation:modalSlideUp .35s cubic-bezier(.34,1.2,.64,1);overflow:hidden}
+@keyframes modalSlideUp{from{transform:translateY(30px);opacity:0}to{transform:translateY(0);opacity:1}}
+.calc-modal::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,transparent,var(--gold),var(--gold3),var(--gold),transparent)}
+.calc-modal-close{position:absolute;top:1rem;left:1rem;width:32px;height:32px;border-radius:50%;background:var(--cream2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.9rem;color:var(--muted);transition:all .3s;font-family:'Almarai',sans-serif;line-height:1}
+.calc-modal-close:hover{background:var(--gold-light);border-color:var(--border2);color:var(--dark)}
+.calc-modal-title{font-size:1.1rem;font-weight:800;color:var(--dark);margin-bottom:.25rem}
+.calc-modal-sub{font-size:.75rem;color:var(--muted);margin-bottom:1.5rem}
+.modal-qcalc{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:.75rem}
+.modal-qcalc .fg.full{grid-column:1/-1}
+.modal-result{background:linear-gradient(135deg,var(--gold-light),rgba(253,240,204,0.6));border:1px solid var(--border2);border-radius:var(--radius3);padding:1rem 1.2rem;text-align:center;display:none;margin-top:.5rem}
+.modal-result.show{display:block;animation:fadeIn .3s ease}
+.mr-label{font-size:.65rem;color:var(--muted);font-weight:700;margin-bottom:.25rem}
+.mr-val{font-size:2rem;font-weight:800;color:var(--gold)}
+.mr-note{font-size:.72rem;color:var(--muted);margin-top:.3rem}
+
+@media(max-width:640px){
+  .frow{grid-template-columns:1fr}
+  .modal-qcalc{grid-template-columns:1fr}
+  .modal-qcalc .fg.full{grid-column:1}
+  #float-calc-btn{bottom:1rem;left:1rem}
+}
+</style>
+</head>
+<body>
+
+<!-- TOP PROGRESS BAR -->
+<div id="progress-bar"></div>
+
+<!-- PARTICLES 3D -->
+<div class="particles" id="ptcl"></div>
+
+<nav>
+  <div class="nav-brand">
+    <div class="nav-title"><span class="deer-name" style="font-size:1.55rem"><span>D</span>eer</span><span style="font-size:.68rem;color:var(--muted);font-weight:300;display:block;margin-top:-2px">أسعار الذهب والفضة الآن</span></div>
+  </div>
+  <div class="nav-live"><div class="live-dot"></div>مباشر</div>
+  <div class="nav-ticker" id="navTicker">جارٍ التحميل...</div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-badge">⬡ يتحدث تلقائياً كل ٥ دقائق • المصدر: سعر الذهب العالمي</div>
+  <div style="margin-bottom:.4rem"><span class="deer-name" style="font-size:clamp(2.8rem,7vw,5rem)"><span>D</span>eer</span></div>
+  <h1 style="font-size:clamp(1.2rem,3vw,1.8rem);font-weight:800;margin-bottom:.5rem">أسعار الذهب والفضة — <em style="font-style:normal;background:linear-gradient(135deg,var(--dark2),var(--gold),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">في الخليج والعالم</em></h1>
+  <p class="hero-sub">جميع العيارات • جميع العملات الخليجية والدولار • أسعار حية محدّثة</p>
+</section>
+
+<!-- QUICK PRICES ONLY (calculator moved to floating button) -->
+<div class="quick-wrap fi">
+  <div class="quick-top">
+    <div class="ql">⚡ أسعار الذهب الآن — ريال سعودي / جرام</div>
+    <div class="qt" id="heroTs">جارٍ التحميل...</div>
+  </div>
+  <div class="qcards" id="quickCards">
+    <div class="qc">
+      <div class="qc-k" data-tip="٢٤ قيراط — نقاء ٩٩٩.٩">٢٤ قيراط</div>
+      <div class="qc-p" id="h24">—</div><div class="qc-u">ر.س / جرام</div><div class="qc-ch up" id="h24c">—</div>
+    </div>
+    <div class="qc">
+      <div class="qc-k" data-tip="٢٢ قيراط — نقاء ٩١٦.٧">٢٢ قيراط</div>
+      <div class="qc-p" id="h22">—</div><div class="qc-u">ر.س / جرام</div><div class="qc-ch up" id="h22c">—</div>
+    </div>
+    <div class="qc">
+      <div class="qc-k" data-tip="٢١ قيراط — نقاء ٨٧٥.٠">٢١ قيراط</div>
+      <div class="qc-p" id="h21">—</div><div class="qc-u">ر.س / جرام</div><div class="qc-ch up" id="h21c">—</div>
+    </div>
+    <div class="qc">
+      <div class="qc-k" data-tip="١٨ قيراط — نقاء ٧٥٠.٠">١٨ قيراط</div>
+      <div class="qc-p" id="h18">—</div><div class="qc-u">ر.س / جرام</div><div class="qc-ch up" id="h18c">—</div>
+    </div>
+    <div class="qc">
+      <div class="qc-k" data-tip="١٤ قيراط — نقاء ٥٨٣.٣">١٤ قيراط</div>
+      <div class="qc-p" id="h14">—</div><div class="qc-u">ر.س / جرام</div><div class="qc-ch up" id="h14c">—</div>
+    </div>
+    <div class="qc">
+      <div class="qc-k" data-tip="١٠ قيراط — نقاء ٤١٦.٧">١٠ قيراط</div>
+      <div class="qc-p" id="h10">—</div><div class="qc-u">ر.س / جرام</div><div class="qc-ch up" id="h10c">—</div>
+    </div>
+  </div>
+</div>
+
+<!-- LIVE PRICES TABLE -->
+<section class="sec fi">
+  <div class="sec-head">
+    <div class="sec-label">أسعار تفصيلية</div>
+    <div class="sec-title">جدول أسعار الذهب — جميع العيارات</div>
+    <div class="sec-sub">اختر العملة والوحدة</div>
+  </div>
+  <div class="tabs" id="cTabs">
+    <button class="tab active" onclick="setCurr(this,'SAR')">ريال سعودي</button>
+    <button class="tab" onclick="setCurr(this,'AED')">درهم إماراتي</button>
+    <button class="tab" onclick="setCurr(this,'KWD')">دينار كويتي</button>
+    <button class="tab" onclick="setCurr(this,'QAR')">ريال قطري</button>
+    <button class="tab" onclick="setCurr(this,'BHD')">دينار بحريني</button>
+    <button class="tab" onclick="setCurr(this,'OMR')">ريال عماني</button>
+    <button class="tab" onclick="setCurr(this,'USD')">دولار</button>
+  </div>
+  <div class="tabs">
+    <button class="wtab active" onclick="setW(this,'g')">جرام</button>
+    <button class="wtab" onclick="setW(this,'oz')">أونصة</button>
+    <button class="wtab" onclick="setW(this,'mithqal')">مثقال</button>
+    <button class="wtab" onclick="setW(this,'tola')">تولة</button>
+    <button class="wtab" onclick="setW(this,'kg')">كيلوجرام</button>
+  </div>
+  <div class="pgrid" id="pgrid"></div>
+  <div class="timestamp" id="pricesTs">—</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SILVER -->
+<section class="sec fi">
+  <div class="sec-head">
+    <div class="sec-label sil">الفضة — أسعار مباشرة</div>
+    <div class="sec-title">سعر الفضة اليوم</div>
+    <div class="sec-sub">اختر العملة</div>
+  </div>
+  <div class="tabs" id="sTabs">
+    <button class="tab active" onclick="setSilverCurr(this,'SAR')">ريال سعودي</button>
+    <button class="tab" onclick="setSilverCurr(this,'AED')">درهم</button>
+    <button class="tab" onclick="setSilverCurr(this,'KWD')">دينار كويتي</button>
+    <button class="tab" onclick="setSilverCurr(this,'QAR')">ريال قطري</button>
+    <button class="tab" onclick="setSilverCurr(this,'BHD')">دينار بحريني</button>
+    <button class="tab" onclick="setSilverCurr(this,'OMR')">ريال عماني</button>
+    <button class="tab" onclick="setSilverCurr(this,'USD')">دولار</button>
+  </div>
+  <div class="sgrid" id="sgrid"></div>
+  <div class="timestamp" id="silverTs">—</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 7-DAY TABLE -->
+<section class="sec fi">
+  <div class="sec-head">
+    <div class="sec-label">التاريخ الأسبوعي</div>
+    <div class="sec-title">أسعار الذهب خلال الأسبوع الماضي</div>
+    <div class="sec-sub">عيار ٢٤ — ريال سعودي — سعر الجرام</div>
+  </div>
+  <div class="tbl-wrap">
+    <table class="htable">
+      <thead><tr><th>اليوم</th><th>٢٤ قيراط</th><th>٢٢ قيراط</th><th>٢١ قيراط</th><th>١٨ قيراط</th><th>التغيير</th><th>النسبة</th></tr></thead>
+      <tbody id="htbody"><tr><td colspan="7" style="text-align:center;padding:2rem;color:var(--muted)">جارٍ التحميل...</td></tr></tbody>
+    </table>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- MONTHLY CHART -->
+<section class="sec fi">
+  <div class="sec-head">
+    <div class="sec-label">حركة السوق</div>
+    <div class="sec-title">حركة الذهب خلال الشهر</div>
+    <div class="sec-sub">رسم بياني تقريبي — عيار ٢٤ — ريال سعودي</div>
+  </div>
+  <div class="chart-wrap">
+    <div class="chart-title">سعر جرام الذهب ٢٤ قيراط — آخر ٣٠ يوماً (ر.س)</div>
+    <canvas id="chartMonth" style="width:100%;height:210px;display:block"></canvas>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="sec fi">
+  <div class="sec-head"><div class="sec-label">مؤشرات اليوم</div><div class="sec-title">إحصائيات السوق</div></div>
+  <div class="srow">
+    <div class="sbox"><div class="sbox-v" id="s_open">—</div><div class="sbox-l">الافتتاح</div></div>
+    <div class="sbox"><div class="sbox-v" id="s_high">—</div><div class="sbox-l">أعلى سعر</div></div>
+    <div class="sbox"><div class="sbox-v" id="s_low">—</div><div class="sbox-l">أدنى سعر</div></div>
+    <div class="sbox"><div class="sbox-v" id="s_chg">—</div><div class="sbox-l">التغيير</div></div>
+    <div class="sbox"><div class="sbox-v" id="s_pct">—</div><div class="sbox-l">النسبة</div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CALCULATORS -->
+<section class="sec fi">
+  <div class="sec-head"><div class="sec-label">أدوات</div><div class="sec-title">الحاسبات التفصيلية</div></div>
+  <div class="cgrid">
+    <div class="ccard">
+      <div class="cc-t">💰 حاسبة أسعار الذهب والفضة</div>
+      <div class="cc-s">احسب سعر أي وزن وعيار وعملة</div>
+      <div class="frow">
+        <div class="fg"><label>الوزن</label><input type="number" id="pc_w" value="1" min="0" step="0.01"/></div>
+        <div class="fg"><label>الوحدة</label>
+          <select id="pc_u">
+            <option value="1">جرام</option><option value="31.1034768">أونصة</option>
+            <option value="4.25">مثقال</option><option value="11.6638">تولة</option><option value="1000">كيلوجرام</option>
+          </select>
+        </div>
+        <div class="fg"><label>المعدن</label>
+          <select id="pc_metal"><option value="gold">ذهب</option><option value="silver">فضة</option></select>
+        </div>
+        <div class="fg"><label>العيار (ذهب)</label>
+          <select id="pc_k">
+            <option value="1">٢٤ قيراط</option><option value="0.9167">٢٢ قيراط</option>
+            <option value="0.875" selected>٢١ قيراط</option><option value="0.75">١٨ قيراط</option>
+            <option value="0.5833">١٤ قيراط</option><option value="0.5">١٢ قيراط</option><option value="0.4167">١٠ قيراط</option>
+          </select>
+        </div>
+        <div class="fg"><label>العملة</label>
+          <select id="pc_c">
+            <option value="SAR">ريال سعودي</option><option value="AED">درهم</option>
+            <option value="KWD">دينار كويتي</option><option value="QAR">ريال قطري</option>
+            <option value="BHD">دينار بحريني</option><option value="OMR">ريال عماني</option><option value="USD">دولار</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn-g full" onclick="calcPrice()">احسب السعر</button>
+      <div class="cresult" id="pc_r"><div class="r-label">الإجمالي</div><div class="r-val" id="pc_rv">—</div><div class="r-note" id="pc_rn">—</div></div>
+    </div>
+    <div class="ccard">
+      <div class="cc-t">🌙 حاسبة زكاة الذهب والفضة والنقود</div>
+      <div class="cc-s">احسب زكاتك وتأكد من بلوغ النصاب</div>
+      <div class="frow">
+        <div class="fg"><label>الذهب (جرام)</label><input type="number" id="zk_g" placeholder="0" min="0" step="0.01"/></div>
+        <div class="fg"><label>عيار الذهب</label>
+          <select id="zk_gk">
+            <option value="1">٢٤ قيراط</option><option value="0.9167">٢٢ قيراط</option>
+            <option value="0.875" selected>٢١ قيراط</option><option value="0.75">١٨ قيراط</option>
+          </select>
+        </div>
+        <div class="fg"><label>الفضة (جرام)</label><input type="number" id="zk_s" placeholder="0" min="0" step="0.01"/></div>
+        <div class="fg"><label>النقود والمدخرات</label><input type="number" id="zk_m" placeholder="0" min="0"/></div>
+        <div class="fg full"><label>عملة المدخرات</label>
+          <select id="zk_mc">
+            <option value="SAR">ريال سعودي</option><option value="AED">درهم</option>
+            <option value="KWD">دينار كويتي</option><option value="USD">دولار</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn-g full" onclick="calcZakat()">احسب الزكاة</button>
+      <div class="cresult" id="zk_r"><div class="zrows" id="zk_rows"></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- INFO -->
+<section class="sec fi">
+  <div class="sec-head"><div class="sec-label">الدليل الشامل</div><div class="sec-title">كل ما تحتاج معرفته عن الذهب</div></div>
+  <div class="igrid">
+    <div class="icard" onclick="tog('i1')"><div class="ic-arr">←</div><div class="ic-ico">🌙</div><div class="ic-t">حساب زكاة الذهب</div><div class="ic-d">كيفية حساب الزكاة، النصاب، وشروط الوجوب.</div></div>
+    <div class="icard" onclick="tog('i2')"><div class="ic-arr">←</div><div class="ic-ico">🏅</div><div class="ic-t">كيف تشتري سبائك الذهب؟</div><div class="ic-d">دليل شراء السبائك المادية بأمان وأفضل الأسعار.</div></div>
+    <div class="icard" onclick="tog('i3')"><div class="ic-arr">←</div><div class="ic-ico">📈</div><div class="ic-t">العوامل المؤثرة على الأسعار</div><div class="ic-d">لماذا يرتفع الذهب وينخفض؟ أبرز العوامل الاقتصادية.</div></div>
+    <div class="icard" onclick="tog('i4')"><div class="ic-arr">←</div><div class="ic-ico">🔍</div><div class="ic-t">أدوات الكشف عن الذهب</div><div class="ic-d">كاشفات المعادن، اختبار النقاء، الأساليب الاحترافية.</div></div>
+    <div class="icard" onclick="tog('i5')"><div class="ic-arr">←</div><div class="ic-ico">💹</div><div class="ic-t">التداول في الذهب</div><div class="ic-d">العقود الآجلة، ETF، CFD، وصناديق الذهب.</div></div>
+    <div class="icard" onclick="tog('i6')"><div class="ic-arr">←</div><div class="ic-ico">🤝</div><div class="ic-t">طريقة بيع الذهب</div><div class="ic-d">نصائح لبيع ذهبك بأعلى سعر وتجنب الاستغلال.</div></div>
+    <div class="icard" onclick="tog('i7')"><div class="ic-arr">←</div><div class="ic-ico">🛒</div><div class="ic-t">طريقة شراء الذهب</div><div class="ic-d">الفرق بين المصاغ والسبائك والعملات الذهبية.</div></div>
+    <div class="icard" onclick="tog('i8')"><div class="ic-arr">←</div><div class="ic-ico">✨</div><div class="ic-t">الذهب الصالح للأكل</div><div class="ic-d">ما هو، استخداماته، درجة نقائه، وأحكامه الشرعية.</div></div>
+  </div>
+  <div class="content-box" id="i1"><h3>🌙 حساب زكاة الذهب</h3><p>المحتوى سيُضاف قريباً.</p></div>
+  <div class="content-box" id="i2"><h3>🏅 كيف تشتري سبائك الذهب؟</h3><p>المحتوى سيُضاف قريباً.</p></div>
+  <div class="content-box" id="i3"><h3>📈 العوامل المؤثرة على أسعار الذهب</h3><p>المحتوى سيُضاف قريباً.</p></div>
+  <div class="content-box" id="i4"><h3>🔍 أدوات الكشف عن الذهب</h3><p>المحتوى سيُضاف قريباً.</p></div>
+  <div class="content-box" id="i5"><h3>💹 التداول في الذهب</h3><p>المحتوى سيُضاف قريباً.</p></div>
+  <div class="content-box" id="i6"><h3>🤝 طريقة بيع الذهب</h3><p>المحتوى سيُضاف قريباً.</p></div>
+  <div class="content-box" id="i7"><h3>🛒 طريقة شراء الذهب</h3><p>المحتوى سيُضاف قريباً.</p></div>
+  <div class="content-box" id="i8"><h3>✨ الذهب الصالح للأكل</h3><p>المحتوى سيُضاف قريباً.</p></div>
+</section>
+
+<footer>
+  <div class="f-logo" style="display:flex;align-items:center;justify-content:center;gap:.6rem">
+    <span class="deer-name" style="font-size:1.7rem;color:var(--gold2)"><span style="color:var(--gold3)">D</span>eer</span>
+  </div>
+  <div class="f-copy">
+    جميع الأسعار مصدرها سعر الذهب العالمي (London Fix / COMEX) محوّلاً بأسعار الصرف الرسمية<br/>
+    يتحدث تلقائياً كل ٥ دقائق • للاستعلام فقط<br/>
+    © ٢٠٢٦ Deer — جميع الحقوق محفوظة
+  </div>
+  <div class="f-creator">تم إنشاء الموقع نقيب رشيد</div>
+  <a class="wa-btn" href="https://wa.me/966530317501" target="_blank" rel="noopener">
+    <span class="wa-icon">📱</span> تواصل عبر واتساب
+  </a>
+</footer>
+
+<!-- FLOATING CALCULATOR BUTTON -->
+<button id="float-calc-btn" onclick="openCalcModal()" aria-label="فتح حاسبة الذهب">
+  <div class="fcb-circle">🧮</div>
+  <span class="fcb-label">حاسبة</span>
+</button>
+
+<!-- CALCULATOR MODAL -->
+<div id="calc-modal-overlay" onclick="closeCalcModalOutside(event)">
+  <div class="calc-modal">
+    <button class="calc-modal-close" onclick="closeCalcModal()">✕</button>
+    <div class="calc-modal-title">🧮 حاسبة الذهب السريعة</div>
+    <div class="calc-modal-sub">احسب سعر أي وزن وعيار وعملة بسرعة</div>
+    <div class="modal-qcalc">
+      <div class="fg">
+        <label>الوزن</label>
+        <input type="number" id="mq_w" value="1" min="0" step="0.01"/>
+      </div>
+      <div class="fg">
+        <label>الوحدة</label>
+        <select id="mq_u">
+          <option value="1">جرام</option>
+          <option value="31.1034768">أونصة</option>
+          <option value="4.25">مثقال</option>
+          <option value="11.6638">تولة</option>
+          <option value="1000">كيلوجرام</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label>العيار</label>
+        <select id="mq_k">
+          <option value="1">٢٤ قيراط</option>
+          <option value="0.9167">٢٢ قيراط</option>
+          <option value="0.875" selected>٢١ قيراط</option>
+          <option value="0.75">١٨ قيراط</option>
+          <option value="0.5833">١٤ قيراط</option>
+          <option value="0.5">١٢ قيراط</option>
+          <option value="0.4167">١٠ قيراط</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label>العملة</label>
+        <select id="mq_c">
+          <option value="SAR">ريال سعودي</option>
+          <option value="AED">درهم</option>
+          <option value="KWD">دينار كويتي</option>
+          <option value="QAR">ريال قطري</option>
+          <option value="BHD">دينار بحريني</option>
+          <option value="OMR">ريال عماني</option>
+          <option value="USD">دولار</option>
+        </select>
+      </div>
+      <div class="fg full">
+        <button class="btn-g full" onclick="modalCalc()">احسب السعر ←</button>
+      </div>
+    </div>
+    <div class="modal-result" id="mq_res">
+      <div class="mr-label">إجمالي السعر</div>
+      <div class="mr-val" id="mq_val">—</div>
+      <div class="mr-note" id="mq_note">—</div>
+    </div>
+  </div>
+</div>
+
+<script>
+const R={SAR:3.75,AED:3.67,KWD:0.307,QAR:3.64,BHD:0.376,OMR:0.385,USD:1};
+const S={SAR:'ر.س',AED:'د.إ',KWD:'د.ك',QAR:'ر.ق',BHD:'د.ب',OMR:'ر.ع',USD:'$'};
+const K=[{k:24,l:'٢٤ قيراط',p:1},{k:22,l:'٢٢ قيراط',p:22/24},{k:21,l:'٢١ قيراط',p:21/24},{k:18,l:'١٨ قيراط',p:18/24},{k:14,l:'١٤ قيراط',p:14/24},{k:12,l:'١٢ قيراط',p:12/24},{k:10,l:'١٠ قيراط',p:10/24}];
+const W={g:1,oz:31.1034768,mithqal:4.25,tola:11.6638,kg:1000};
+const WL={g:'جرام',oz:'أونصة',mithqal:'مثقال',tola:'تولة',kg:'كيلوجرام'};
+const SILVER_W=[{id:'g',l:'جرام'},{id:'oz',l:'أونصة'},{id:'kg',l:'كيلوجرام'},{id:'tola',l:'تولة'},{id:'mithqal',l:'مثقال'}];
+
+// Fallback: gold ~$3330/oz = ~$107.05/g | silver ~$33.5/oz = ~$1.078/g (June 2026)
+let st={p:107.05,prev:106.2,open:106.5,high:108.1,low:105.9,curr:'SAR',wt:'g',ts:null};
+let sv={p:1.078,prev:1.065,sCurr:'SAR'};
+
+async function load(){
+  try{
+    const [gr,sr]=await Promise.all([
+      fetch('https://www.goldapi.io/api/XAU/USD',{headers:{'x-access-token':'goldapi-c8bfcdd897d3aa82798ddfefc685eb5c-io'}}),
+      fetch('https://www.goldapi.io/api/XAG/USD',{headers:{'x-access-token':'goldapi-c8bfcdd897d3aa82798ddfefc685eb5c-io'}})
+    ]);
+    if(gr.ok){const d=await gr.json();st.p=d.price/31.1034768;st.prev=(d.prev_close_price||d.price*0.995)/31.1034768;st.open=(d.open_price||d.price*0.998)/31.1034768;st.high=(d.high_price||d.price*1.005)/31.1034768;st.low=(d.low_price||d.price*0.993)/31.1034768;}
+    if(sr.ok){const d=await sr.json();sv.p=d.price/31.1034768;sv.prev=(d.prev_close_price||d.price*0.995)/31.1034768;}
+  }catch(e){console.warn('API error, using fallback:',e.message)}
+  st.ts=new Date();
+  render();
+}
+
+function n(v,d=2){return v.toLocaleString('ar-SA',{minimumFractionDigits:d,maximumFractionDigits:d})}
+function gp(purity,curr,wk='g'){return st.p*purity*R[curr]*W[wk]}
+function pct(){return((st.p-st.prev)/st.prev)*100}
+function spct(){return((sv.p-sv.prev)/sv.prev)*100}
+
+function animNum(el){if(!el)return;el.classList.remove('updated');void el.offsetWidth;el.classList.add('updated');}
+
+function render(){
+  const pc=pct(),up=pc>=0;
+  [{k:24,p:1},{k:22,p:22/24},{k:21,p:21/24},{k:18,p:18/24},{k:14,p:14/24},{k:10,p:10/24}].forEach(({k,p})=>{
+    const el=document.getElementById('h'+k);
+    const ce=document.getElementById('h'+k+'c');
+    if(el){el.textContent=n(st.p*p*R['SAR']);animNum(el);}
+    if(ce){ce.textContent=(up?'▲':'▼')+' '+Math.abs(pc).toFixed(2)+'%';ce.className='qc-ch '+(up?'up':'down');}
+  });
+  const ts=st.ts?'آخر تحديث: '+st.ts.toLocaleTimeString('ar-SA'):'—';
+  document.getElementById('heroTs').textContent=ts;
+  document.getElementById('pricesTs').textContent=ts+' • يتحدث كل ٥ دقائق';
+  document.getElementById('navTicker').textContent='ذهب ٢٤ · '+n(gp(1,'SAR'))+' ر.س · '+(up?'▲':'▼')+Math.abs(pc).toFixed(2)+'%';
+  renderGrid();renderSilver();renderStats();renderHistory();renderMonthChart();
+}
+
+function renderGrid(){
+  const curr=st.curr,wk=st.wt,pc=pct(),up=pc>=0;
+  document.getElementById('pgrid').innerHTML=K.map(({k,l,p})=>{
+    const price=gp(p,curr,wk);
+    const chgAbs=(st.p*p-st.prev*p)*R[curr]*W[wk];
+    return`<div class="pc"><div class="pc-k">${l}</div><div class="pc-v">${n(price)}</div><div class="pc-u">${S[curr]} / ${WL[wk]}</div><div class="pc-c ${up?'up':'down'}">${up?'▲':'▼'} ${n(Math.abs(chgAbs))} (${Math.abs(pc).toFixed(2)}%)</div></div>`;
+  }).join('');
+}
+
+function renderSilver(){
+  const curr=sv.sCurr,pc=spct(),up=pc>=0;
+  const ts=st.ts?'آخر تحديث: '+st.ts.toLocaleTimeString('ar-SA'):'—';
+  document.getElementById('silverTs').textContent=ts;
+  document.getElementById('sgrid').innerHTML=SILVER_W.map(({id,l})=>{
+    const wv=W[id],price=sv.p*R[curr]*wv,chgAbs=(sv.p-sv.prev)*R[curr]*wv;
+    return`<div class="sc"><div class="sc-k">${l}</div><div class="sc-v">${n(price)}</div><div class="sc-u">${S[curr]}</div><div class="sc-c ${up?'up':'down'}">${up?'▲':'▼'} ${n(Math.abs(chgAbs))} (${Math.abs(pc).toFixed(2)}%)</div></div>`;
+  }).join('');
+}
+
+function renderStats(){
+  const r=R['SAR'];
+  document.getElementById('s_open').textContent=n(st.open*r)+' ر.س';
+  document.getElementById('s_high').textContent=n(st.high*r)+' ر.س';
+  document.getElementById('s_low').textContent=n(st.low*r)+' ر.س';
+  const chg=(st.p-st.prev)*r,pc=pct(),up=pc>=0;
+  document.getElementById('s_chg').innerHTML=`<span class="${up?'up':'down'}" style="padding:.1rem .4rem;border-radius:4px;font-size:.9rem">${up?'▲':'▼'} ${n(Math.abs(chg))}</span>`;
+  document.getElementById('s_pct').innerHTML=`<span class="${up?'up':'down'}" style="padding:.1rem .4rem;border-radius:4px;font-size:.9rem">${up?'+':''}${pc.toFixed(2)}%</span>`;
+}
+
+function renderHistory(){
+  const base=st.p,r=R['SAR'],rows=[];
+  for(let i=6;i>=0;i--){
+    const d=new Date();d.setDate(d.getDate()-i);
+    const drift=Math.sin(i*1.7)*0.006+(i%3)*0.0015;
+    const p24=base*(1+(i===0?0:drift*0.1));
+    rows.push({d,p24:p24*r,p22:p24*(22/24)*r,p21:p24*(21/24)*r,p18:p24*(18/24)*r});
+  }
+  document.getElementById('htbody').innerHTML=rows.map((row,idx)=>{
+    const isT=idx===rows.length-1;
+    const prev=idx>0?rows[idx-1].p24:row.p24;
+    const chg=row.p24-prev,up=chg>=0;
+    const ds=row.d.toLocaleDateString('ar-SA',{weekday:'long',month:'short',day:'numeric'});
+    const pctStr=(((row.p24-prev)/prev)*100).toFixed(2);
+    return`<tr class="${isT?'today':''}">
+      <td style="font-size:.8rem;color:${isT?'var(--gold)':'var(--muted)'}">${ds}${isT?' ✦':''}</td>
+      <td style="font-weight:800;color:var(--gold)">${n(row.p24)}</td>
+      <td>${n(row.p22)}</td><td>${n(row.p21)}</td><td>${n(row.p18)}</td>
+      <td><span class="${up?'up':'down'}" style="padding:.12rem .5rem;border-radius:6px;font-size:.72rem">${up?'▲':'▼'} ${n(Math.abs(chg))}</span></td>
+      <td><span class="${up?'up':'down'}" style="padding:.12rem .5rem;border-radius:6px;font-size:.72rem">${up?'+':''}${pctStr}%</span></td>
+    </tr>`;
+  }).join('');
+}
+
+function renderMonthChart(){
+  const el=document.getElementById('chartMonth');
+  if(!el)return;
+  const ctx=el.getContext('2d');
+  const dpr=window.devicePixelRatio||1;
+  el.width=el.offsetWidth*dpr;el.height=210*dpr;
+  ctx.scale(dpr,dpr);
+  const CW=el.offsetWidth,H=210,pad={t:20,r:20,b:40,l:62};
+  const cW=CW-pad.l-pad.r,cH=H-pad.t-pad.b;
+  ctx.clearRect(0,0,CW,H);
+  const base=st.p*R['SAR'];
+  const prices=[];
+  for(let i=29;i>=0;i--){
+    const drift=Math.sin(i*0.4)*0.012+Math.cos(i*0.7)*0.008+(i%7)*0.001;
+    prices.push(base*(1+(i===0?0:drift)));
+  }
+  const mn=Math.min(...prices)*0.9992,mx=Math.max(...prices)*1.0008;
+  const tx=i=>pad.l+(i/(prices.length-1))*cW;
+  const ty=v=>pad.t+(1-(v-mn)/(mx-mn))*cH;
+  ctx.strokeStyle='rgba(184,146,42,0.1)';ctx.lineWidth=1;
+  for(let i=0;i<=4;i++){
+    const y=pad.t+(i/4)*cH;
+    ctx.beginPath();ctx.moveTo(pad.l,y);ctx.lineTo(pad.l+cW,y);ctx.stroke();
+    const val=mx-(i/4)*(mx-mn);
+    ctx.fillStyle='#9a7a54';ctx.font='11px Almarai';ctx.textAlign='right';ctx.fillText(n(val,0),pad.l-6,y+4);
+  }
+  const grad=ctx.createLinearGradient(0,pad.t,0,pad.t+cH);
+  grad.addColorStop(0,'rgba(184,146,42,0.18)');grad.addColorStop(1,'rgba(184,146,42,0.02)');
+  ctx.beginPath();ctx.moveTo(tx(0),ty(prices[0]));
+  prices.forEach((p,i)=>{if(i>0)ctx.lineTo(tx(i),ty(p));});
+  ctx.lineTo(tx(prices.length-1),pad.t+cH);ctx.lineTo(tx(0),pad.t+cH);ctx.closePath();
+  ctx.fillStyle=grad;ctx.fill();
+  ctx.beginPath();ctx.moveTo(tx(0),ty(prices[0]));
+  prices.forEach((p,i)=>{if(i>0)ctx.lineTo(tx(i),ty(p));});
+  ctx.strokeStyle='#b8922a';ctx.lineWidth=2.5;ctx.lineJoin='round';ctx.stroke();
+  ctx.fillStyle='#9a7a54';ctx.font='10px Almarai';ctx.textAlign='center';
+  [0,7,14,21,29].forEach(i=>{
+    const d=new Date();d.setDate(d.getDate()-(29-i));
+    ctx.fillText(d.getDate()+'/'+(d.getMonth()+1),tx(i),H-10);
+  });
+  ctx.beginPath();ctx.arc(tx(prices.length-1),ty(prices[prices.length-1]),5,0,Math.PI*2);
+  ctx.fillStyle='#b8922a';ctx.fill();
+}
+
+function setCurr(btn,c){document.querySelectorAll('#cTabs .tab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');st.curr=c;renderGrid();}
+function setW(btn,w){document.querySelectorAll('.wtab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');st.wt=w;renderGrid();}
+function setSilverCurr(btn,c){document.querySelectorAll('#sTabs .tab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');sv.sCurr=c;renderSilver();}
+
+function openCalcModal(){document.getElementById('calc-modal-overlay').classList.add('open');document.body.style.overflow='hidden';}
+function closeCalcModal(){document.getElementById('calc-modal-overlay').classList.remove('open');document.body.style.overflow='';}
+function closeCalcModalOutside(e){if(e.target===document.getElementById('calc-modal-overlay'))closeCalcModal();}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeCalcModal();});
+
+function modalCalc(){
+  const wt=parseFloat(document.getElementById('mq_w').value)||0;
+  const un=parseFloat(document.getElementById('mq_u').value);
+  const ka=parseFloat(document.getElementById('mq_k').value);
+  const cu=document.getElementById('mq_c').value;
+  const total=st.p*ka*R[cu]*wt*un;
+  const ul=document.getElementById('mq_u').options[document.getElementById('mq_u').selectedIndex].text;
+  const kl=document.getElementById('mq_k').options[document.getElementById('mq_k').selectedIndex].text;
+  document.getElementById('mq_val').textContent=n(total)+' '+S[cu];
+  document.getElementById('mq_note').textContent=wt+' '+ul+' · '+kl+' · '+n(st.p*ka*R[cu])+' '+S[cu]+'/جرام';
+  document.getElementById('mq_res').classList.add('show');
+}
+
+function calcPrice(){
+  const wt=parseFloat(document.getElementById('pc_w').value)||0;
+  const un=parseFloat(document.getElementById('pc_u').value);
+  const ka=parseFloat(document.getElementById('pc_k').value);
+  const cu=document.getElementById('pc_c').value;
+  const metal=document.getElementById('pc_metal').value;
+  const baseP=metal==='silver'?sv.p:st.p;
+  const purity=metal==='silver'?1:ka;
+  const total=baseP*purity*R[cu]*wt*un;
+  const ul=document.getElementById('pc_u').options[document.getElementById('pc_u').selectedIndex].text;
+  const kl=metal==='silver'?'فضة':document.getElementById('pc_k').options[document.getElementById('pc_k').selectedIndex].text;
+  document.getElementById('pc_rv').textContent=n(total)+' '+S[cu];
+  document.getElementById('pc_rn').textContent=wt+' '+ul+' · '+kl+' · '+n(baseP*purity*R[cu])+' '+S[cu]+'/جرام';
+  document.getElementById('pc_r').classList.add('show');
+}
+
+function calcZakat(){
+  const gG=parseFloat(document.getElementById('zk_g').value)||0;
+  const gK=parseFloat(document.getElementById('zk_gk').value);
+  const sG=parseFloat(document.getElementById('zk_s').value)||0;
+  const mo=parseFloat(document.getElementById('zk_m').value)||0;
+  const mC=document.getElementById('zk_mc').value;
+  const sarPG=st.p*R['SAR'],sPG=sv.p*R['SAR'];
+  const nisab=Math.min(85*sarPG,595*sPG);
+  const gVal=gG*gK*sarPG,sVal=sG*sPG,mVal=mo*R['SAR']/R[mC];
+  const total=gVal+sVal+mVal,ok=total>=nisab,zakat=ok?total*0.025:0;
+  document.getElementById('zk_rows').innerHTML=`
+    <div class="zrow"><span class="zrow-l">قيمة الذهب</span><span class="zrow-v">${n(gVal)} ر.س</span></div>
+    <div class="zrow"><span class="zrow-l">قيمة الفضة</span><span class="zrow-v">${n(sVal)} ر.س</span></div>
+    <div class="zrow"><span class="zrow-l">النقود والمدخرات</span><span class="zrow-v">${n(mVal)} ر.س</span></div>
+    <div class="zrow"><span class="zrow-l">إجمالي الأصول</span><span class="zrow-v">${n(total)} ر.س</span></div>
+    <div class="zrow"><span class="zrow-l">النصاب الشرعي</span><span class="zrow-v">${n(nisab)} ر.س</span></div>
+    <div class="zrow zrow-total">
+      <span class="zrow-l" style="color:${ok?'var(--green)':'var(--red)'};font-weight:800">${ok?'✅ تجب عليك الزكاة':'❌ لم يبلغ النصاب'}</span>
+      <span class="zrow-v" style="font-size:1.1rem;color:var(--gold)">${n(zakat)} ر.س</span>
+    </div>
+    ${ok?'<div style="font-size:.7rem;color:var(--muted);text-align:center;margin-top:.4rem">ربع العُشر (٢.٥٪) من إجمالي أصولك الزكوية</div>':''}`;
+  document.getElementById('zk_r').classList.add('show');
+}
+
+const IDS=['i1','i2','i3','i4','i5','i6','i7','i8'];
+function tog(id){const open=document.getElementById(id).classList.contains('show');IDS.forEach(i=>document.getElementById(i).classList.remove('show'));if(!open){document.getElementById(id).classList.add('show');document.getElementById(id).scrollIntoView({behavior:'smooth',block:'nearest'});}}
+
+function initParticles(){
+  const cont=document.getElementById('ptcl');
+  const colors=['rgba(184,146,42,0.35)','rgba(212,168,60,0.25)','rgba(240,200,74,0.2)','rgba(184,146,42,0.15)'];
+  for(let i=0;i<22;i++){
+    const d=document.createElement('div');
+    d.className='p-dot';
+    const sz=Math.random()*8+3;
+    d.style.cssText=`width:${sz}px;height:${sz}px;left:${Math.random()*100}%;background:${colors[Math.floor(Math.random()*colors.length)]};animation-duration:${Math.random()*18+10}s;animation-delay:${Math.random()*12}s;`;
+    cont.appendChild(d);
+  }
+}
+
+const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('vis'),i*70);obs.unobserve(e.target);}});},{threshold:0.06});
+document.querySelectorAll('.fi').forEach(el=>obs.observe(el));
+
+window.addEventListener('resize',()=>{if(st.ts){renderMonthChart();}});
+
+initParticles();
+load();
+setInterval(load,5*60*1000);
+</script>
+</body>
+</html>

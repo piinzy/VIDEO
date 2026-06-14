@@ -6,13 +6,12 @@ class ApiConfig {
   // Base URL for GoldAPI.io
   static const String baseUrl = 'https://www.goldapi.io/api';
   
-  // TODO: Replace with your actual API key from https://www.goldapi.io/
-  static const String apiKey = 'YOUR_API_KEY_HERE';
-  
-  // API endpoints
-  static const String endpointPrices = '/prices';
-  static const String endpointHistorical = '/historical';
-  static const String endpointConvert = '/convert';
+  static const String apiKey = 'goldapi-c8bfcdd897d3aa82798ddfefc685eb5c-io';
+
+  // GoldAPI.io format: GET /XAU/{currency}
+  static const String endpointPrices = 'XAU';
+  static const String endpointHistorical = 'XAU';
+  static const String endpointConvert = 'convert';
   
   // Timeout configuration
   static const int connectionTimeout = 30; // seconds

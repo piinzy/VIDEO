@@ -32,7 +32,7 @@ class GoldApiService {
         return _getMockPrices(currency);
       }
 
-      final response = await _dio.get('/${ApiConfig.endpointPrices}/$currency');
+      final response = await _dio.get('/${ApiConfig.endpointPrices}/${currency.toUpperCase()}');
       
       if (response.statusCode == 200) {
         return GoldPriceModel.fromJson(response.data, currency);

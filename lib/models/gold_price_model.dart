@@ -58,17 +58,23 @@ class GoldPriceModel extends Equatable {
   bool get isPriceUp => priceChangePercent != null && priceChangePercent! > 0;
 
   factory GoldPriceModel.fromJson(Map<String, dynamic> json, String currency) {
-    // GoldAPI.io response format
+    // GoldAPI.io returns price per troy ounce; convert to per gram
+    final pricePerOunce = _parsePrice(json['price']);
+    final pricePerGram = pricePerOunce / 31.1034768;
+    final prevClose = _parsePrice(json['prev_close_price']);
+    final prevPerGram = prevClose > 0 ? prevClose / 31.1034768 : null;
+
     return GoldPriceModel(
-      price24k: _parsePrice(json['XAU']),
-      price22k: _parsePrice(json['XAU']) * (22 / 24),
-      price21k: _parsePrice(json['XAU']) * (21 / 24),
-      price18k: _parsePrice(json['XAU']) * (18 / 24),
-      price14k: _parsePrice(json['XAU']) * (14 / 24),
-      price12k: _parsePrice(json['XAU']) * (12 / 24),
-      price10k: _parsePrice(json['XAU']) * (10 / 24),
+      price24k: pricePerGram,
+      price22k: pricePerGram * (22 / 24),
+      price21k: pricePerGram * (21 / 24),
+      price18k: pricePerGram * (18 / 24),
+      price14k: pricePerGram * (14 / 24),
+      price12k: pricePerGram * (12 / 24),
+      price10k: pricePerGram * (10 / 24),
       currency: currency,
       timestamp: DateTime.now(),
+      previousPrice: prevPerGram,
     );
   }
 

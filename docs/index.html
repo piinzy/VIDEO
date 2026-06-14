@@ -3,196 +3,217 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>النقيب للذهب | أسعار الذهب والفضة الآن في الخليج</title>
-<meta name="description" content="أسعار الذهب والفضة اليوم في السعودية والخليج - جميع العيارات - حاسبة الزكاة - حاسبة الأسعار"/>
+<title>الديري | أسعار الذهب والفضة في الخليج</title>
+<meta name="description" content="أسعار الذهب والفضة اليوم - جميع العيارات - حاسبة الزكاة - حاسبة الأسعار - الديري"/>
 <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
-  /* Palette — Faded Golden Olive / Deep Burgundy Brown / Burnt Espresso / Cold Sepia / Warm Taupe */
-  --g1:#8c7c42;--g2:#b8a85e;--g3:#ddd0a0;
-  --burg:#7a2230;--esp:#9a6448;
-  --s1:#9a8e84;--s2:#c0aea0;
-  --dark:#060402;--dark2:#0c0806;--dark3:#14100a;--dark4:#1c160e;
-  --glass:rgba(255,255,255,0.035);--glass2:rgba(255,255,255,0.06);
-  --border:rgba(140,124,66,0.18);--border2:rgba(140,124,66,0.35);
-  --sborder:rgba(154,142,132,0.2);--sborder2:rgba(154,142,132,0.35);
-  --text:#e8ddd2;--muted:#907868;--muted2:#584840;
-  --green:#22c55e;--red:#ef4444;
-  --green-bright:#22c55e;--red-bright:#ef4444;
-  --radius:16px;--radius2:12px;--radius3:8px;
+  --gold:#b8922a;--gold2:#d4a83c;--gold3:#f0c84a;--gold-light:#fdf0cc;
+  --cream:#fdf6ed;--cream2:#f5ede0;--cream3:#ede0cc;
+  --white:#ffffff;
+  --dark:#1a0f04;--dark2:#2d1e0a;--mid:#6b4c28;--muted:#9a7a54;--muted2:#c4a882;
+  --border:rgba(184,146,42,0.2);--border2:rgba(184,146,42,0.4);
+  --shadow:rgba(184,146,42,0.12);--shadow2:rgba(26,15,4,0.1);
+  --green:#16a34a;--red:#dc2626;
+  --radius:18px;--radius2:12px;--radius3:8px;
 }
 html{scroll-behavior:smooth}
-body{font-family:'Almarai',sans-serif;background:var(--dark);color:var(--text);overflow-x:hidden;line-height:1.6}
-::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--dark2)}::-webkit-scrollbar-thumb{background:var(--g1);border-radius:3px}
-body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 50% at 20% 10%,rgba(122,34,48,0.07) 0%,transparent 55%),radial-gradient(ellipse 60% 40% at 80% 80%,rgba(140,124,66,0.05) 0%,transparent 50%),radial-gradient(ellipse 50% 50% at 50% 50%,rgba(154,100,72,0.03) 0%,transparent 70%);pointer-events:none;z-index:0}
+body{font-family:'Almarai',sans-serif;background:var(--cream);color:var(--dark);overflow-x:hidden;line-height:1.6}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--cream2)}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
+
+/* 3D PARTICLES */
+.particles{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.p-dot{position:absolute;border-radius:50%;opacity:0;animation:floatDot linear infinite}
+@keyframes floatDot{0%{transform:translateY(100vh) rotate(0deg);opacity:0}10%{opacity:.6}90%{opacity:.3}100%{transform:translateY(-10vh) rotate(720deg);opacity:0}}
 
 /* NAV */
-nav{position:sticky;top:0;z-index:999;background:rgba(6,4,2,0.94);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);padding:.85rem 4vw;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+nav{position:sticky;top:0;z-index:999;background:rgba(253,246,237,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:.8rem 4vw;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;box-shadow:0 2px 20px var(--shadow)}
 .nav-brand{display:flex;align-items:center;gap:.7rem;flex:1}
-.nav-logo-box{width:36px;height:36px;background:linear-gradient(135deg,var(--g1),var(--g2));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;box-shadow:0 4px 12px rgba(140,124,66,0.35)}
-.nav-title{font-size:.95rem;font-weight:800;color:var(--g2)}
-.nav-title span{color:var(--muted);font-weight:300;font-size:.72rem;display:block;margin-top:-2px}
-.nav-live{display:flex;align-items:center;gap:.4rem;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.28);border-radius:999px;padding:.28rem .85rem;font-size:.72rem;font-weight:700;color:#22c55e}
+.nav-logo{width:40px;height:40px;background:linear-gradient(135deg,var(--gold),var(--gold3));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;box-shadow:0 4px 14px rgba(184,146,42,0.4);animation:logoPulse 3s ease infinite}
+@keyframes logoPulse{0%,100%{box-shadow:0 4px 14px rgba(184,146,42,0.4)}50%{box-shadow:0 4px 22px rgba(184,146,42,0.7)}}
+.nav-title{font-size:1.05rem;font-weight:800;color:var(--dark)}
+.nav-title span{color:var(--muted);font-weight:300;font-size:.7rem;display:block;margin-top:-3px}
+.nav-live{display:flex;align-items:center;gap:.4rem;background:rgba(22,163,74,0.1);border:1px solid rgba(22,163,74,0.3);border-radius:999px;padding:.28rem .85rem;font-size:.72rem;font-weight:700;color:var(--green)}
 .live-dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:livePulse 1.5s ease infinite;flex-shrink:0}
-@keyframes livePulse{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,0.6)}50%{box-shadow:0 0 0 5px rgba(34,197,94,0)}}
-.nav-ticker{font-size:.78rem;color:var(--g2);font-weight:700;white-space:nowrap;background:var(--glass);border:1px solid var(--border);padding:.3rem .8rem;border-radius:var(--radius3)}
+@keyframes livePulse{0%,100%{box-shadow:0 0 0 0 rgba(22,163,74,0.6)}50%{box-shadow:0 0 0 5px rgba(22,163,74,0)}}
+.nav-ticker{font-size:.78rem;color:var(--gold);font-weight:800;white-space:nowrap;background:var(--gold-light);border:1px solid var(--border2);padding:.3rem .9rem;border-radius:var(--radius3)}
 
 /* HERO */
-#hero{position:relative;padding:2.5rem 4vw 0;text-align:center;z-index:1}
-.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:var(--glass2);border:1px solid var(--border2);border-radius:999px;padding:.38rem 1.1rem;font-size:.72rem;font-weight:700;color:var(--g2);margin-bottom:1rem;backdrop-filter:blur(10px)}
-.hero-h{font-size:clamp(1.6rem,4.5vw,2.8rem);font-weight:800;line-height:1.15;margin-bottom:.4rem}
-.hero-h em{font-style:normal;background:linear-gradient(135deg,var(--g3),var(--g1),var(--g2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-sub{font-size:.85rem;color:var(--muted);max-width:540px;margin:0 auto .9rem}
+#hero{position:relative;padding:3rem 4vw 1.5rem;text-align:center;z-index:1;overflow:hidden}
+#hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 0%,rgba(212,168,60,0.12) 0%,transparent 70%);pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:var(--gold-light);border:1px solid var(--border2);border-radius:999px;padding:.4rem 1.2rem;font-size:.72rem;font-weight:700;color:var(--gold);margin-bottom:1rem;animation:badgePop .6s ease}
+@keyframes badgePop{from{opacity:0;transform:scale(.9) translateY(8px)}to{opacity:1;transform:none}}
+.hero-h{font-size:clamp(1.8rem,5vw,3rem);font-weight:800;line-height:1.2;margin-bottom:.5rem}
+.hero-h em{font-style:normal;background:linear-gradient(135deg,var(--dark2),var(--gold),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:.88rem;color:var(--muted);max-width:540px;margin:0 auto .5rem}
 
-/* QUICK CARDS */
-.quick-wrap{background:linear-gradient(135deg,rgba(140,124,66,0.09),rgba(154,100,72,0.04));border:1px solid var(--border2);border-radius:var(--radius);padding:1.8rem;margin:0 4vw;position:relative;overflow:hidden;backdrop-filter:blur(16px);box-shadow:0 12px 40px rgba(0,0,0,0.5),0 1px 0 rgba(255,255,255,0.06) inset}
-.quick-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--g1),transparent)}
-.quick-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem;flex-wrap:wrap;gap:.6rem}
-.quick-label{font-size:.65rem;font-weight:700;letter-spacing:.25em;color:var(--g1);text-transform:uppercase}
-.quick-ts{font-size:.7rem;color:var(--muted2)}
-.qcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:.8rem;margin-bottom:1.4rem}
-.qc{background:var(--dark2);border:1px solid var(--border);border-radius:var(--radius2);padding:1rem;text-align:center;transition:.25s;position:relative;overflow:hidden}
-.qc:hover{border-color:var(--border2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(140,124,66,0.12)}
-.qc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--g1),transparent);transform:scaleX(0);transition:.3s}
-.qc:hover::after{transform:scaleX(1)}
-.qc-k{font-size:.6rem;font-weight:700;letter-spacing:.1em;color:var(--g1);margin-bottom:.35rem;text-transform:uppercase}
-.qc-p{font-size:1.35rem;font-weight:800;color:var(--g2)}
-.qc-u{font-size:.62rem;color:var(--muted);margin-top:.15rem}
+/* 3D QUICK CARD WRAP */
+.quick-wrap{background:var(--white);border:1px solid var(--border2);border-radius:var(--radius);padding:2rem;margin:0 4vw 0;position:relative;overflow:hidden;box-shadow:0 8px 40px var(--shadow),0 1px 0 rgba(255,255,255,0.9) inset;transform-style:preserve-3d;transition:transform .3s ease}
+.quick-wrap:hover{transform:perspective(800px) rotateX(.8deg)}
+.quick-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold),var(--gold3),transparent)}
+.quick-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(253,240,204,0.4) 0%,transparent 60%);pointer-events:none}
+.quick-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.3rem;flex-wrap:wrap;gap:.6rem;position:relative;z-index:1}
+.ql{font-size:.62rem;font-weight:700;letter-spacing:.28em;color:var(--gold);text-transform:uppercase}
+.qt{font-size:.7rem;color:var(--muted2)}
+.qcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:.75rem;margin-bottom:1.5rem;position:relative;z-index:1}
+.qc{background:var(--cream);border:1px solid var(--border);border-radius:var(--radius2);padding:1rem;text-align:center;transition:.3s;cursor:default;position:relative;overflow:hidden}
+.qc:hover{background:var(--white);border-color:var(--border2);transform:translateY(-4px) scale(1.02);box-shadow:0 10px 28px var(--shadow)}
+.qc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:.3s}
+.qc:hover::before{opacity:1}
+.qc-k{font-size:.6rem;font-weight:700;letter-spacing:.1em;color:var(--muted);margin-bottom:.3rem;text-transform:uppercase}
+.qc-p{font-size:1.3rem;font-weight:800;color:var(--dark)}
+.qc-u{font-size:.6rem;color:var(--muted2);margin-top:.1rem}
 .qc-ch{display:inline-flex;align-items:center;gap:.2rem;margin-top:.4rem;font-size:.7rem;font-weight:700;padding:.18rem .5rem;border-radius:999px}
-.up{color:#22c55e!important;background:rgba(34,197,94,0.1)}
-.down{color:#ef4444!important;background:rgba(239,68,68,0.1)}
+.up{color:var(--green)!important;background:rgba(22,163,74,0.1)!important}
+.down{color:var(--red)!important;background:rgba(220,38,38,0.1)!important}
 
 /* QUICK CALC */
-.qcalc{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr)) auto;gap:.6rem;align-items:end}
-.qcalc .fg{display:flex;flex-direction:column;gap:.25rem}
-label{font-size:.65rem;font-weight:700;color:var(--muted);letter-spacing:.04em}
-input,select{background:var(--dark3);border:1px solid var(--border);color:var(--text);font-family:'Almarai',sans-serif;font-size:.85rem;padding:.58rem .85rem;border-radius:var(--radius3);outline:none;transition:.2s;width:100%}
-input:focus,select:focus{border-color:var(--g1);box-shadow:0 0 0 3px rgba(140,124,66,0.1)}
-select option{background:var(--dark3)}
-.btn-c{padding:.7rem 1.4rem;background:linear-gradient(135deg,var(--g1),var(--g2));color:#000;font-family:'Almarai',sans-serif;font-size:.88rem;font-weight:800;border:none;border-radius:var(--radius3);cursor:pointer;transition:.2s;box-shadow:0 4px 14px rgba(140,124,66,0.35);white-space:nowrap}
-.btn-c:hover{opacity:.88;transform:translateY(-1px)}
-.btn-c:active{transform:translateY(0)}
-.btn-c.full{width:100%;padding:.78rem}
-.qresult{background:linear-gradient(135deg,rgba(140,124,66,0.12),rgba(154,100,72,0.05));border:1px solid var(--border2);border-radius:var(--radius3);padding:.8rem 1rem;margin-top:.7rem;display:none;text-align:center}
-.qresult.show{display:block}
+.qcalc-wrap{border-top:1px solid var(--border);padding-top:1.3rem;position:relative;z-index:1}
+.qcalc{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr)) auto;gap:.6rem;align-items:end}
+label{font-size:.65rem;font-weight:700;color:var(--muted);letter-spacing:.04em;display:block;margin-bottom:.25rem}
+input,select{background:var(--cream);border:1px solid var(--border);color:var(--dark);font-family:'Almarai',sans-serif;font-size:.85rem;padding:.58rem .85rem;border-radius:var(--radius3);outline:none;transition:.2s;width:100%}
+input:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(184,146,42,0.12);background:var(--white)}
+select option{background:var(--white)}
+.btn-g{padding:.7rem 1.4rem;background:linear-gradient(135deg,var(--gold),var(--gold3));color:#fff;font-family:'Almarai',sans-serif;font-size:.88rem;font-weight:800;border:none;border-radius:var(--radius3);cursor:pointer;transition:.25s;box-shadow:0 4px 14px rgba(184,146,42,0.4);white-space:nowrap}
+.btn-g:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(184,146,42,0.5)}
+.btn-g:active{transform:translateY(0)}
+.btn-g.full{width:100%;padding:.78rem}
+.qresult{background:linear-gradient(135deg,var(--gold-light),rgba(253,240,204,0.5));border:1px solid var(--border2);border-radius:var(--radius3);padding:.85rem 1.1rem;margin-top:.8rem;display:none;text-align:center}
+.qresult.show{display:block;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 .qr-label{font-size:.65rem;color:var(--muted);font-weight:700;margin-bottom:.2rem}
-.qr-val{font-size:1.7rem;font-weight:800;color:var(--g2)}
+.qr-val{font-size:1.8rem;font-weight:800;color:var(--gold)}
 .qr-note{font-size:.7rem;color:var(--muted);margin-top:.2rem}
 
 /* SECTION */
-.sec{padding:2.2rem 4vw;position:relative;z-index:1;border-top:1px solid rgba(255,255,255,0.04)}
-.sec-head{margin-bottom:1.3rem}
-.sec-label{font-size:.62rem;font-weight:700;letter-spacing:.3em;color:var(--g1);text-transform:uppercase;margin-bottom:.35rem}
-.sec-label.silver{color:var(--s1)}
-.sec-title{font-size:clamp(1.1rem,2.8vw,1.6rem);font-weight:800}
+.sec{padding:2.5rem 4vw;position:relative;z-index:1}
+.sec+.sec{border-top:1px solid var(--border)}
+.sec-head{margin-bottom:1.4rem}
+.sec-label{font-size:.62rem;font-weight:700;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;margin-bottom:.35rem}
+.sec-label.sil{color:var(--muted)}
+.sec-title{font-size:clamp(1.15rem,2.8vw,1.65rem);font-weight:800;color:var(--dark)}
 .sec-sub{font-size:.8rem;color:var(--muted);margin-top:.25rem}
 
 /* TABS */
 .tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.1rem}
-.tab{padding:.42rem .9rem;border-radius:var(--radius3);border:1px solid var(--border);background:var(--glass);color:var(--muted);font-family:'Almarai',sans-serif;font-size:.76rem;font-weight:700;cursor:pointer;transition:.2s;white-space:nowrap}
-.tab:hover{border-color:var(--g1);color:var(--g2)}
-.tab.active{background:linear-gradient(135deg,var(--g1),var(--g2));color:#000;border-color:transparent;box-shadow:0 4px 12px rgba(140,124,66,0.38)}
-.tab.silver-tab.active{background:linear-gradient(135deg,var(--s1),var(--s2));color:#000;border-color:transparent;box-shadow:0 4px 12px rgba(143,168,184,0.38)}
-.wtab{padding:.32rem .8rem;border-radius:var(--radius3);border:1px solid var(--border);background:var(--glass);color:var(--muted);font-family:'Almarai',sans-serif;font-size:.73rem;cursor:pointer;transition:.2s}
-.wtab.active{background:var(--dark3);border-color:var(--border2);color:var(--g2)}
+.tab{padding:.42rem .9rem;border-radius:var(--radius3);border:1px solid var(--border);background:var(--white);color:var(--muted);font-family:'Almarai',sans-serif;font-size:.76rem;font-weight:700;cursor:pointer;transition:.2s}
+.tab:hover{border-color:var(--gold2);color:var(--gold)}
+.tab.active{background:linear-gradient(135deg,var(--gold),var(--gold3));color:#fff;border-color:transparent;box-shadow:0 4px 14px rgba(184,146,42,0.4)}
+.wtab{padding:.32rem .8rem;border-radius:var(--radius3);border:1px solid var(--border);background:var(--white);color:var(--muted);font-family:'Almarai',sans-serif;font-size:.73rem;cursor:pointer;transition:.2s}
+.wtab.active{background:var(--gold-light);border-color:var(--border2);color:var(--dark);font-weight:700}
 
 /* PRICES GRID */
-.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:1px;background:var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.4)}
-.pc{background:var(--dark2);padding:1.1rem .85rem;text-align:center;transition:.25s;position:relative}
-.pc:hover{background:var(--dark3);box-shadow:0 0 0 1px var(--border2) inset}
-.pc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--g1),transparent);transform:scaleX(0);transition:.3s}
-.pc:hover::after{transform:scaleX(1)}
-.pc-k{font-size:.58rem;font-weight:700;letter-spacing:.1em;color:var(--g1);margin-bottom:.35rem;text-transform:uppercase}
-.pc-v{font-size:1.1rem;font-weight:800;color:var(--text)}
-.pc-u{font-size:.62rem;color:var(--muted);margin-top:.12rem}
-.pc-c{font-size:.66rem;font-weight:700;margin-top:.3rem;display:inline-flex;align-items:center;gap:.18rem;padding:.1rem .42rem;border-radius:999px}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:1px;background:var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:0 4px 24px var(--shadow2)}
+.pc{background:var(--white);padding:1.2rem .9rem;text-align:center;transition:.25s;position:relative}
+.pc:hover{background:var(--gold-light);z-index:1;transform:scale(1.02);box-shadow:0 6px 20px var(--shadow)}
+.pc-k{font-size:.6rem;font-weight:700;letter-spacing:.1em;color:var(--gold);margin-bottom:.4rem;text-transform:uppercase}
+.pc-v{font-size:1.15rem;font-weight:800;color:var(--dark)}
+.pc-u{font-size:.62rem;color:var(--muted2);margin-top:.12rem}
+.pc-c{font-size:.67rem;font-weight:700;margin-top:.35rem;display:inline-flex;align-items:center;gap:.18rem;padding:.12rem .45rem;border-radius:999px}
 
 /* SILVER GRID */
-.sgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--sborder);border-radius:var(--radius);overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.4)}
-.sc{background:var(--dark2);padding:1.1rem .85rem;text-align:center;transition:.25s}
-.sc:hover{background:var(--dark3)}
-.sc-k{font-size:.58rem;font-weight:700;letter-spacing:.1em;color:var(--s1);margin-bottom:.35rem;text-transform:uppercase}
-.sc-v{font-size:1.1rem;font-weight:800;color:var(--s2)}
-.sc-u{font-size:.62rem;color:var(--muted);margin-top:.12rem}
-.sc-c{font-size:.66rem;font-weight:700;margin-top:.3rem;display:inline-flex;align-items:center;gap:.18rem;padding:.1rem .42rem;border-radius:999px}
+.sgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:rgba(154,122,84,0.15);border-radius:var(--radius);overflow:hidden;box-shadow:0 4px 24px var(--shadow2)}
+.sc{background:var(--white);padding:1.2rem .9rem;text-align:center;transition:.25s}
+.sc:hover{background:rgba(245,237,224,0.8)}
+.sc-k{font-size:.6rem;font-weight:700;letter-spacing:.1em;color:var(--muted);margin-bottom:.4rem;text-transform:uppercase}
+.sc-v{font-size:1.15rem;font-weight:800;color:var(--dark2)}
+.sc-u{font-size:.62rem;color:var(--muted2);margin-top:.12rem}
+.sc-c{font-size:.67rem;font-weight:700;margin-top:.35rem;display:inline-flex;align-items:center;gap:.18rem;padding:.12rem .45rem;border-radius:999px}
 
 /* HISTORY TABLE */
-.htable{width:100%;border-collapse:collapse;font-size:.82rem}
-.htable th{padding:.6rem .9rem;text-align:right;font-weight:700;font-size:.66rem;letter-spacing:.06em;color:var(--g1);border-bottom:1px solid var(--border);background:var(--dark3)}
-.htable td{padding:.65rem .9rem;border-bottom:1px solid rgba(255,255,255,0.04);color:var(--text)}
-.htable tr:hover td{background:var(--glass2)}
-.htable tr:last-child td{border-bottom:none}
+.htable{width:100%;border-collapse:collapse;font-size:.83rem}
+.htable thead{background:linear-gradient(135deg,var(--gold),var(--gold2))}
+.htable th{padding:.75rem 1rem;text-align:right;font-weight:700;font-size:.68rem;letter-spacing:.06em;color:#fff}
+.htable td{padding:.75rem 1rem;border-bottom:1px solid var(--border);color:var(--dark)}
+.htable tbody tr:last-child td{border-bottom:none}
+.htable tbody tr:hover td{background:var(--gold-light)}
+.htable tbody tr.today td{background:rgba(184,146,42,0.06);font-weight:700}
+.tbl-wrap{border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);box-shadow:0 4px 24px var(--shadow2)}
 
 /* CHART */
-.chart-wrap{background:var(--dark2);border:1px solid var(--border);border-radius:var(--radius);padding:1.2rem;overflow:hidden}
-
-/* FULL CALC */
-.cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.2rem}
-.ccard{background:var(--dark2);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;position:relative;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.3)}
-.ccard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--g1),transparent)}
-.cc-title{font-size:.92rem;font-weight:800;margin-bottom:.18rem}
-.cc-sub{font-size:.73rem;color:var(--muted);margin-bottom:1.1rem}
-.frow{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin-bottom:.65rem}
-.fg{display:flex;flex-direction:column;gap:.28rem}
-.fg.full{grid-column:1/-1}
-.cresult{background:linear-gradient(135deg,rgba(140,124,66,0.1),rgba(201,168,76,0.03));border:1px solid var(--border2);border-radius:var(--radius3);padding:.85rem 1rem;margin-top:.65rem;display:none}
-.cresult.show{display:block}
-.r-label{font-size:.65rem;color:var(--muted);font-weight:700;margin-bottom:.22rem}
-.r-val{font-size:1.45rem;font-weight:800;color:var(--g2)}
-.r-note{font-size:.68rem;color:var(--muted);margin-top:.28rem}
-.zrows{display:flex;flex-direction:column;gap:.45rem;margin-top:.4rem}
-.zrow{display:flex;justify-content:space-between;align-items:center;padding:.42rem .7rem;background:var(--glass);border-radius:var(--radius3)}
-.zrow-l{font-size:.73rem;color:var(--muted)}
-.zrow-v{font-size:.83rem;font-weight:800;color:var(--g2)}
-.zrow-total{background:rgba(140,124,66,0.1);border:1px solid var(--border2)}
+.chart-wrap{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.4rem;box-shadow:0 4px 24px var(--shadow2);overflow:hidden}
+.chart-title{font-size:.78rem;font-weight:700;color:var(--muted);margin-bottom:.9rem}
 
 /* STATS */
-.srow{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:1px;background:var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:1.4rem}
-.sbox{background:var(--dark2);padding:.9rem .75rem;text-align:center}
-.sbox-v{font-size:1.1rem;font-weight:800;color:var(--g2)}
-.sbox-l{font-size:.62rem;color:var(--muted);margin-top:.12rem;font-weight:700}
+.srow{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:1px;background:var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:0 4px 24px var(--shadow2)}
+.sbox{background:var(--white);padding:1.1rem .8rem;text-align:center;transition:.2s}
+.sbox:hover{background:var(--gold-light)}
+.sbox-v{font-size:1.15rem;font-weight:800;color:var(--gold)}
+.sbox-l{font-size:.63rem;color:var(--muted);margin-top:.15rem;font-weight:700}
 
-/* INFO */
-.igrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:.9rem}
-.icard{background:var(--dark2);border:1px solid var(--border);border-radius:var(--radius);padding:1.4rem;transition:.3s;cursor:pointer;position:relative;overflow:hidden}
-.icard:hover{border-color:var(--border2);transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,0.4)}
-.icard::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(154,100,72,0.06),transparent);opacity:0;transition:.3s}
+/* CALC CARDS */
+.cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.4rem}
+.ccard{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.8rem;box-shadow:0 4px 24px var(--shadow2);position:relative;overflow:hidden;transition:.3s}
+.ccard:hover{transform:translateY(-3px);box-shadow:0 12px 36px var(--shadow)}
+.ccard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.cc-t{font-size:.95rem;font-weight:800;margin-bottom:.2rem;color:var(--dark)}
+.cc-s{font-size:.75rem;color:var(--muted);margin-bottom:1.2rem}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-bottom:.7rem}
+.fg{display:flex;flex-direction:column}
+.fg.full{grid-column:1/-1}
+.cresult{background:var(--gold-light);border:1px solid var(--border2);border-radius:var(--radius3);padding:.9rem 1.1rem;margin-top:.7rem;display:none}
+.cresult.show{display:block;animation:fadeIn .3s ease}
+.r-label{font-size:.66rem;color:var(--muted);font-weight:700;margin-bottom:.22rem}
+.r-val{font-size:1.5rem;font-weight:800;color:var(--gold)}
+.r-note{font-size:.7rem;color:var(--muted);margin-top:.3rem}
+.zrows{display:flex;flex-direction:column;gap:.5rem;margin-top:.4rem}
+.zrow{display:flex;justify-content:space-between;align-items:center;padding:.45rem .75rem;background:var(--cream);border-radius:var(--radius3)}
+.zrow-l{font-size:.73rem;color:var(--muted)}
+.zrow-v{font-size:.84rem;font-weight:800;color:var(--dark)}
+.zrow-total{background:var(--gold-light);border:1px solid var(--border2)}
+
+/* INFO CARDS */
+.igrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+.icard{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;transition:.3s;cursor:pointer;position:relative;overflow:hidden}
+.icard:hover{border-color:var(--border2);transform:translateY(-3px);box-shadow:0 10px 30px var(--shadow)}
+.icard::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(184,146,42,0.06),transparent);opacity:0;transition:.3s}
 .icard:hover::after{opacity:1}
-.ic-ico{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,rgba(140,124,66,0.12),rgba(154,100,72,0.06));border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:1rem;margin-bottom:.7rem}
-.ic-t{font-size:.86rem;font-weight:800;margin-bottom:.25rem}
-.ic-d{font-size:.73rem;color:var(--muted);line-height:1.7}
-.ic-arr{position:absolute;top:1.1rem;left:1.1rem;color:var(--muted2);transition:.3s}
-.icard:hover .ic-arr{color:var(--g1);transform:translateX(-3px)}
-.content-box{background:var(--glass);border:1px solid var(--border);border-radius:var(--radius);padding:1.4rem;display:none;margin-top:.9rem}
-.content-box.show{display:block}
-.content-box h3{color:var(--g2);font-size:.92rem;margin-bottom:.65rem}
+.ic-ico{width:42px;height:42px;border-radius:12px;background:var(--gold-light);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:.8rem}
+.ic-t{font-size:.88rem;font-weight:800;margin-bottom:.28rem;color:var(--dark)}
+.ic-d{font-size:.75rem;color:var(--muted);line-height:1.7}
+.ic-arr{position:absolute;top:1.2rem;left:1.2rem;color:var(--muted2);font-size:.85rem;transition:.3s}
+.icard:hover .ic-arr{color:var(--gold);transform:translateX(-4px)}
+.content-box{background:var(--cream);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;display:none;margin-top:.9rem}
+.content-box.show{display:block;animation:fadeIn .35s ease}
+.content-box h3{color:var(--gold);font-size:.92rem;margin-bottom:.65rem}
 .content-box p{color:var(--muted);font-size:.8rem;line-height:1.9}
-.timestamp{font-size:.68rem;color:var(--muted2);text-align:center;margin-top:.7rem}
+.timestamp{font-size:.68rem;color:var(--muted2);text-align:center;margin-top:.8rem}
 
 /* FOOTER */
-footer{background:var(--dark2);border-top:1px solid var(--border);padding:1.6rem 4vw;text-align:center}
-.f-logo{font-size:1rem;font-weight:800;color:var(--g2);margin-bottom:.35rem}
-.f-copy{font-size:.68rem;color:var(--muted2)}
+footer{background:var(--dark);color:rgba(255,255,255,0.7);padding:2rem 4vw;text-align:center}
+.f-logo{font-size:1.1rem;font-weight:800;color:var(--gold2);margin-bottom:.5rem}
+.f-copy{font-size:.72rem;margin-bottom:1rem;line-height:2}
+.f-creator{font-size:.72rem;color:rgba(255,255,255,0.45);margin-bottom:1rem}
+.wa-btn{display:inline-flex;align-items:center;gap:.55rem;background:#25D366;color:#fff;font-family:'Almarai',sans-serif;font-size:.88rem;font-weight:700;padding:.7rem 1.6rem;border-radius:999px;text-decoration:none;transition:.25s;box-shadow:0 4px 16px rgba(37,211,102,0.4)}
+.wa-btn:hover{background:#1ebe5a;transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,0.5)}
+.wa-icon{font-size:1.1rem}
 
 /* FADE IN */
-.fi{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease}
+.fi{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
 .fi.vis{opacity:1;transform:none}
+
+/* 3D SECTION DIVIDER */
+.divider{height:3px;background:linear-gradient(90deg,transparent,var(--border2),transparent);margin:0 4vw}
 
 @media(max-width:640px){
   .frow{grid-template-columns:1fr}
   .qcalc{grid-template-columns:1fr 1fr}
-  .qcalc .btn-c{grid-column:1/-1;width:100%}
+  .qcalc .btn-g{grid-column:1/-1;width:100%}
   .qc-p{font-size:1.1rem}
+  .quick-wrap{margin:0 3vw}
 }
 </style>
 </head>
 <body>
 
+<!-- PARTICLES 3D -->
+<div class="particles" id="ptcl"></div>
+
 <nav>
   <div class="nav-brand">
-    <div class="nav-logo-box">⬡</div>
-    <div class="nav-title">النقيب للذهب<span>أسعار لحظية — خليج + دولار</span></div>
+    <div class="nav-logo">⬡</div>
+    <div class="nav-title">الديري<span>أسعار الذهب والفضة الآن</span></div>
   </div>
   <div class="nav-live"><div class="live-dot"></div>مباشر</div>
   <div class="nav-ticker" id="navTicker">جارٍ التحميل...</div>
@@ -200,16 +221,16 @@ footer{background:var(--dark2);border-top:1px solid var(--border);padding:1.6rem
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-badge">⬡ يتحدث تلقائياً كل ٥ دقائق</div>
-  <h1 class="hero-h">أسعار الذهب والفضة اليوم<br/><em>في الخليج والعالم</em></h1>
-  <p class="hero-sub">جميع العيارات • ريال سعودي ودرهم ودينار والدولار • أسعار حية محدّثة</p>
+  <div class="hero-badge">⬡ يتحدث تلقائياً كل ٥ دقائق • المصدر: سعر الذهب العالمي</div>
+  <h1 class="hero-h">أسعار الذهب والفضة<br/><em>في الخليج والعالم</em></h1>
+  <p class="hero-sub">جميع العيارات • جميع العملات الخليجية والدولار • أسعار حية محدّثة</p>
 </section>
 
-<!-- QUICK PRICES + CALCULATOR -->
+<!-- QUICK PRICES + CALC -->
 <div class="quick-wrap fi">
   <div class="quick-top">
-    <div class="sec-label">⚡ أسعار الذهب الآن — ريال سعودي / جرام</div>
-    <div class="quick-ts" id="heroTs">جارٍ التحميل...</div>
+    <div class="ql">⚡ أسعار الذهب الآن — ريال سعودي / جرام</div>
+    <div class="qt" id="heroTs">جارٍ التحميل...</div>
   </div>
   <div class="qcards" id="quickCards">
     <div class="qc"><div class="qc-k">٢٤ قيراط</div><div class="qc-p" id="h24">—</div><div class="qc-u">ر.س / جرام</div><div class="qc-ch up" id="h24c">—</div></div>
@@ -219,13 +240,11 @@ footer{background:var(--dark2);border-top:1px solid var(--border);padding:1.6rem
     <div class="qc"><div class="qc-k">١٤ قيراط</div><div class="qc-p" id="h14">—</div><div class="qc-u">ر.س / جرام</div><div class="qc-ch up" id="h14c">—</div></div>
     <div class="qc"><div class="qc-k">١٠ قيراط</div><div class="qc-p" id="h10">—</div><div class="qc-u">ر.س / جرام</div><div class="qc-ch up" id="h10c">—</div></div>
   </div>
-
-  <!-- QUICK CALC -->
-  <div style="border-top:1px solid var(--border);padding-top:1.2rem">
-    <div class="sec-label" style="margin-bottom:.8rem">💰 حاسبة الذهب السريعة</div>
+  <div class="qcalc-wrap">
+    <div class="ql" style="margin-bottom:.85rem">💰 حاسبة الذهب السريعة</div>
     <div class="qcalc">
-      <div class="fg"><label>الوزن</label><input type="number" id="qw" value="1" min="0" step="0.01"/></div>
-      <div class="fg"><label>الوحدة</label>
+      <div><label>الوزن</label><input type="number" id="qw" value="1" min="0" step="0.01"/></div>
+      <div><label>الوحدة</label>
         <select id="qu">
           <option value="1">جرام</option>
           <option value="31.1034768">أونصة</option>
@@ -234,7 +253,7 @@ footer{background:var(--dark2);border-top:1px solid var(--border);padding:1.6rem
           <option value="1000">كيلوجرام</option>
         </select>
       </div>
-      <div class="fg"><label>العيار</label>
+      <div><label>العيار</label>
         <select id="qk">
           <option value="1">٢٤ قيراط</option>
           <option value="0.9167">٢٢ قيراط</option>
@@ -245,8 +264,8 @@ footer{background:var(--dark2);border-top:1px solid var(--border);padding:1.6rem
           <option value="0.4167">١٠ قيراط</option>
         </select>
       </div>
-      <div class="fg"><label>العملة</label>
-        <select id="qc">
+      <div><label>العملة</label>
+        <select id="qc_s">
           <option value="SAR">ريال سعودي</option>
           <option value="AED">درهم</option>
           <option value="KWD">دينار كويتي</option>
@@ -256,7 +275,7 @@ footer{background:var(--dark2);border-top:1px solid var(--border);padding:1.6rem
           <option value="USD">دولار</option>
         </select>
       </div>
-      <button class="btn-c" onclick="quickCalc()">احسب ←</button>
+      <button class="btn-g" onclick="quickCalc()">احسب ←</button>
     </div>
     <div class="qresult" id="qres">
       <div class="qr-label">إجمالي السعر</div>
@@ -266,11 +285,11 @@ footer{background:var(--dark2);border-top:1px solid var(--border);padding:1.6rem
   </div>
 </div>
 
-<!-- LIVE PRICES -->
+<!-- LIVE PRICES TABLE -->
 <section class="sec fi">
   <div class="sec-head">
     <div class="sec-label">أسعار تفصيلية</div>
-    <div class="sec-title">جدول أسعار الذهب بجميع العيارات</div>
+    <div class="sec-title">جدول أسعار الذهب — جميع العيارات</div>
     <div class="sec-sub">اختر العملة والوحدة</div>
   </div>
   <div class="tabs" id="cTabs">
@@ -293,47 +312,63 @@ footer{background:var(--dark2);border-top:1px solid var(--border);padding:1.6rem
   <div class="timestamp" id="pricesTs">—</div>
 </section>
 
+<div class="divider"></div>
+
 <!-- SILVER -->
 <section class="sec fi">
   <div class="sec-head">
-    <div class="sec-label silver">الفضة — أسعار مباشرة</div>
+    <div class="sec-label sil">الفضة — أسعار مباشرة</div>
     <div class="sec-title">سعر الفضة اليوم</div>
     <div class="sec-sub">اختر العملة</div>
   </div>
   <div class="tabs" id="sTabs">
-    <button class="tab silver-tab active" onclick="setSilverCurr(this,'SAR')">ريال سعودي</button>
-    <button class="tab silver-tab" onclick="setSilverCurr(this,'AED')">درهم إماراتي</button>
-    <button class="tab silver-tab" onclick="setSilverCurr(this,'KWD')">دينار كويتي</button>
-    <button class="tab silver-tab" onclick="setSilverCurr(this,'QAR')">ريال قطري</button>
-    <button class="tab silver-tab" onclick="setSilverCurr(this,'BHD')">دينار بحريني</button>
-    <button class="tab silver-tab" onclick="setSilverCurr(this,'OMR')">ريال عماني</button>
-    <button class="tab silver-tab" onclick="setSilverCurr(this,'USD')">دولار</button>
+    <button class="tab active" onclick="setSilverCurr(this,'SAR')">ريال سعودي</button>
+    <button class="tab" onclick="setSilverCurr(this,'AED')">درهم</button>
+    <button class="tab" onclick="setSilverCurr(this,'KWD')">دينار كويتي</button>
+    <button class="tab" onclick="setSilverCurr(this,'QAR')">ريال قطري</button>
+    <button class="tab" onclick="setSilverCurr(this,'BHD')">دينار بحريني</button>
+    <button class="tab" onclick="setSilverCurr(this,'OMR')">ريال عماني</button>
+    <button class="tab" onclick="setSilverCurr(this,'USD')">دولار</button>
   </div>
   <div class="sgrid" id="sgrid"></div>
   <div class="timestamp" id="silverTs">—</div>
 </section>
 
-<!-- 7-DAY -->
+<div class="divider"></div>
+
+<!-- 7-DAY TABLE -->
 <section class="sec fi">
   <div class="sec-head">
-    <div class="sec-label">السجل التاريخي</div>
-    <div class="sec-title">أسعار الذهب في الأيام السابقة</div>
+    <div class="sec-label">التاريخ الأسبوعي</div>
+    <div class="sec-title">أسعار الذهب خلال الأسبوع الماضي</div>
     <div class="sec-sub">عيار ٢٤ — ريال سعودي — سعر الجرام</div>
   </div>
-  <div class="chart-wrap" style="margin-bottom:1.2rem">
-    <canvas id="chart" style="width:100%;height:190px;display:block"></canvas>
-  </div>
-  <div style="overflow-x:auto;border-radius:var(--radius);border:1px solid var(--border)">
+  <div class="tbl-wrap">
     <table class="htable">
-      <thead><tr><th>التاريخ</th><th>٢٤ قيراط</th><th>٢٢ قيراط</th><th>٢١ قيراط</th><th>١٨ قيراط</th><th>التغيير</th></tr></thead>
-      <tbody id="htbody"><tr><td colspan="6" style="text-align:center;padding:1.5rem;color:var(--muted)">جارٍ التحميل...</td></tr></tbody>
+      <thead><tr><th>اليوم</th><th>٢٤ قيراط</th><th>٢٢ قيراط</th><th>٢١ قيراط</th><th>١٨ قيراط</th><th>التغيير</th><th>النسبة</th></tr></thead>
+      <tbody id="htbody"><tr><td colspan="7" style="text-align:center;padding:2rem;color:var(--muted)">جارٍ التحميل...</td></tr></tbody>
     </table>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- MONTHLY CHART -->
+<section class="sec fi">
+  <div class="sec-head">
+    <div class="sec-label">حركة السوق</div>
+    <div class="sec-title">حركة الذهب خلال الشهر</div>
+    <div class="sec-sub">رسم بياني تقريبي — عيار ٢٤ — ريال سعودي</div>
+  </div>
+  <div class="chart-wrap">
+    <div class="chart-title">سعر جرام الذهب ٢٤ قيراط — آخر ٣٠ يوماً (ر.س)</div>
+    <canvas id="chartMonth" style="width:100%;height:210px;display:block"></canvas>
   </div>
 </section>
 
 <!-- STATS -->
 <section class="sec fi">
-  <div class="sec-head"><div class="sec-label">مؤشرات السوق</div><div class="sec-title">إحصائيات اليوم</div></div>
+  <div class="sec-head"><div class="sec-label">مؤشرات اليوم</div><div class="sec-title">إحصائيات السوق</div></div>
   <div class="srow">
     <div class="sbox"><div class="sbox-v" id="s_open">—</div><div class="sbox-l">الافتتاح</div></div>
     <div class="sbox"><div class="sbox-v" id="s_high">—</div><div class="sbox-l">أعلى سعر</div></div>
@@ -343,88 +378,71 @@ footer{background:var(--dark2);border-top:1px solid var(--border);padding:1.6rem
   </div>
 </section>
 
+<div class="divider"></div>
+
 <!-- CALCULATORS -->
 <section class="sec fi">
-  <div class="sec-head"><div class="sec-label">أدوات ذكية</div><div class="sec-title">الحاسبات التفصيلية</div></div>
+  <div class="sec-head"><div class="sec-label">أدوات</div><div class="sec-title">الحاسبات التفصيلية</div></div>
   <div class="cgrid">
-
     <div class="ccard">
-      <div class="cc-title">💰 حاسبة أسعار الذهب والفضة</div>
-      <div class="cc-sub">احسب سعر أي وزن وعيار وعملة</div>
+      <div class="cc-t">💰 حاسبة أسعار الذهب والفضة</div>
+      <div class="cc-s">احسب سعر أي وزن وعيار وعملة</div>
       <div class="frow">
         <div class="fg"><label>الوزن</label><input type="number" id="pc_w" value="1" min="0" step="0.01"/></div>
         <div class="fg"><label>الوحدة</label>
           <select id="pc_u">
-            <option value="1">جرام</option>
-            <option value="31.1034768">أونصة</option>
-            <option value="4.25">مثقال</option>
-            <option value="11.6638">تولة</option>
-            <option value="1000">كيلوجرام</option>
+            <option value="1">جرام</option><option value="31.1034768">أونصة</option>
+            <option value="4.25">مثقال</option><option value="11.6638">تولة</option><option value="1000">كيلوجرام</option>
           </select>
         </div>
         <div class="fg"><label>المعدن</label>
-          <select id="pc_metal">
-            <option value="gold">ذهب</option>
-            <option value="silver">فضة</option>
-          </select>
+          <select id="pc_metal"><option value="gold">ذهب</option><option value="silver">فضة</option></select>
         </div>
-        <div class="fg"><label>العيار (ذهب فقط)</label>
+        <div class="fg"><label>العيار (ذهب)</label>
           <select id="pc_k">
-            <option value="1">٢٤ قيراط</option>
-            <option value="0.9167">٢٢ قيراط</option>
-            <option value="0.875" selected>٢١ قيراط</option>
-            <option value="0.75">١٨ قيراط</option>
-            <option value="0.5833">١٤ قيراط</option>
-            <option value="0.5">١٢ قيراط</option>
-            <option value="0.4167">١٠ قيراط</option>
+            <option value="1">٢٤ قيراط</option><option value="0.9167">٢٢ قيراط</option>
+            <option value="0.875" selected>٢١ قيراط</option><option value="0.75">١٨ قيراط</option>
+            <option value="0.5833">١٤ قيراط</option><option value="0.5">١٢ قيراط</option><option value="0.4167">١٠ قيراط</option>
           </select>
         </div>
         <div class="fg"><label>العملة</label>
           <select id="pc_c">
-            <option value="SAR">ريال سعودي</option>
-            <option value="AED">درهم</option>
-            <option value="KWD">دينار كويتي</option>
-            <option value="QAR">ريال قطري</option>
-            <option value="BHD">دينار بحريني</option>
-            <option value="OMR">ريال عماني</option>
-            <option value="USD">دولار</option>
+            <option value="SAR">ريال سعودي</option><option value="AED">درهم</option>
+            <option value="KWD">دينار كويتي</option><option value="QAR">ريال قطري</option>
+            <option value="BHD">دينار بحريني</option><option value="OMR">ريال عماني</option><option value="USD">دولار</option>
           </select>
         </div>
       </div>
-      <button class="btn-c full" onclick="calcPrice()">احسب السعر</button>
+      <button class="btn-g full" onclick="calcPrice()">احسب السعر</button>
       <div class="cresult" id="pc_r"><div class="r-label">الإجمالي</div><div class="r-val" id="pc_rv">—</div><div class="r-note" id="pc_rn">—</div></div>
     </div>
-
     <div class="ccard">
-      <div class="cc-title">🌙 حاسبة زكاة الذهب والفضة والنقود</div>
-      <div class="cc-sub">احسب زكاتك وتأكد من بلوغ النصاب</div>
+      <div class="cc-t">🌙 حاسبة زكاة الذهب والفضة والنقود</div>
+      <div class="cc-s">احسب زكاتك وتأكد من بلوغ النصاب</div>
       <div class="frow">
         <div class="fg"><label>الذهب (جرام)</label><input type="number" id="zk_g" placeholder="0" min="0" step="0.01"/></div>
         <div class="fg"><label>عيار الذهب</label>
           <select id="zk_gk">
-            <option value="1">٢٤ قيراط</option>
-            <option value="0.9167">٢٢ قيراط</option>
-            <option value="0.875" selected>٢١ قيراط</option>
-            <option value="0.75">١٨ قيراط</option>
+            <option value="1">٢٤ قيراط</option><option value="0.9167">٢٢ قيراط</option>
+            <option value="0.875" selected>٢١ قيراط</option><option value="0.75">١٨ قيراط</option>
           </select>
         </div>
         <div class="fg"><label>الفضة (جرام)</label><input type="number" id="zk_s" placeholder="0" min="0" step="0.01"/></div>
         <div class="fg"><label>النقود والمدخرات</label><input type="number" id="zk_m" placeholder="0" min="0"/></div>
         <div class="fg full"><label>عملة المدخرات</label>
           <select id="zk_mc">
-            <option value="SAR">ريال سعودي</option>
-            <option value="AED">درهم</option>
-            <option value="KWD">دينار كويتي</option>
-            <option value="USD">دولار</option>
+            <option value="SAR">ريال سعودي</option><option value="AED">درهم</option>
+            <option value="KWD">دينار كويتي</option><option value="USD">دولار</option>
           </select>
         </div>
       </div>
-      <button class="btn-c full" onclick="calcZakat()">احسب الزكاة</button>
+      <button class="btn-g full" onclick="calcZakat()">احسب الزكاة</button>
       <div class="cresult" id="zk_r"><div class="zrows" id="zk_rows"></div></div>
     </div>
-
   </div>
 </section>
+
+<div class="divider"></div>
 
 <!-- INFO -->
 <section class="sec fi">
@@ -439,80 +457,76 @@ footer{background:var(--dark2);border-top:1px solid var(--border);padding:1.6rem
     <div class="icard" onclick="tog('i7')"><div class="ic-arr">←</div><div class="ic-ico">🛒</div><div class="ic-t">طريقة شراء الذهب</div><div class="ic-d">الفرق بين المصاغ والسبائك والعملات الذهبية.</div></div>
     <div class="icard" onclick="tog('i8')"><div class="ic-arr">←</div><div class="ic-ico">✨</div><div class="ic-t">الذهب الصالح للأكل</div><div class="ic-d">ما هو، استخداماته، درجة نقائه، وأحكامه الشرعية.</div></div>
   </div>
-  <div class="content-box" id="i1"><h3>🌙 حساب زكاة الذهب</h3><p>المحتوى سيُضاف من قِبل المالك قريباً.</p></div>
-  <div class="content-box" id="i2"><h3>🏅 كيف تشتري سبائك الذهب؟</h3><p>المحتوى سيُضاف من قِبل المالك قريباً.</p></div>
-  <div class="content-box" id="i3"><h3>📈 العوامل المؤثرة على أسعار الذهب</h3><p>المحتوى سيُضاف من قِبل المالك قريباً.</p></div>
-  <div class="content-box" id="i4"><h3>🔍 أدوات الكشف عن الذهب</h3><p>المحتوى سيُضاف من قِبل المالك قريباً.</p></div>
-  <div class="content-box" id="i5"><h3>💹 التداول في الذهب</h3><p>المحتوى سيُضاف من قِبل المالك قريباً.</p></div>
-  <div class="content-box" id="i6"><h3>🤝 طريقة بيع الذهب</h3><p>المحتوى سيُضاف من قِبل المالك قريباً.</p></div>
-  <div class="content-box" id="i7"><h3>🛒 طريقة شراء الذهب</h3><p>المحتوى سيُضاف من قِبل المالك قريباً.</p></div>
-  <div class="content-box" id="i8"><h3>✨ الذهب الصالح للأكل</h3><p>المحتوى سيُضاف من قِبل المالك قريباً.</p></div>
+  <div class="content-box" id="i1"><h3>🌙 حساب زكاة الذهب</h3><p>المحتوى سيُضاف قريباً.</p></div>
+  <div class="content-box" id="i2"><h3>🏅 كيف تشتري سبائك الذهب؟</h3><p>المحتوى سيُضاف قريباً.</p></div>
+  <div class="content-box" id="i3"><h3>📈 العوامل المؤثرة على أسعار الذهب</h3><p>المحتوى سيُضاف قريباً.</p></div>
+  <div class="content-box" id="i4"><h3>🔍 أدوات الكشف عن الذهب</h3><p>المحتوى سيُضاف قريباً.</p></div>
+  <div class="content-box" id="i5"><h3>💹 التداول في الذهب</h3><p>المحتوى سيُضاف قريباً.</p></div>
+  <div class="content-box" id="i6"><h3>🤝 طريقة بيع الذهب</h3><p>المحتوى سيُضاف قريباً.</p></div>
+  <div class="content-box" id="i7"><h3>🛒 طريقة شراء الذهب</h3><p>المحتوى سيُضاف قريباً.</p></div>
+  <div class="content-box" id="i8"><h3>✨ الذهب الصالح للأكل</h3><p>المحتوى سيُضاف قريباً.</p></div>
 </section>
 
 <footer>
-  <div class="f-logo">⬡ النقيب للذهب</div>
-  <div class="f-copy">جميع الأسعار للاستعلام فقط • يتحدث تلقائياً كل ٥ دقائق<br/>© ٢٠٢٦ النقيب للذهب — جميع الحقوق محفوظة</div>
+  <div class="f-logo">⬡ الديري</div>
+  <div class="f-copy">
+    جميع الأسعار مصدرها سعر الذهب العالمي (London Fix / COMEX) محوّلاً بأسعار الصرف الرسمية<br/>
+    يتحدث تلقائياً كل ٥ دقائق • للاستعلام فقط<br/>
+    © ٢٠٢٦ الديري — جميع الحقوق محفوظة
+  </div>
+  <div class="f-creator">تم إنشاء الموقع نقيب رشيد</div>
+  <a class="wa-btn" href="https://wa.me/966530317501" target="_blank" rel="noopener">
+    <span class="wa-icon">📱</span> تواصل عبر واتساب
+  </a>
 </footer>
 
 <script>
+// ── DATA ──────────────────────────────────────────────────
 const R={SAR:3.75,AED:3.67,KWD:0.307,QAR:3.64,BHD:0.376,OMR:0.385,USD:1};
 const S={SAR:'ر.س',AED:'د.إ',KWD:'د.ك',QAR:'ر.ق',BHD:'د.ب',OMR:'ر.ع',USD:'$'};
 const K=[{k:24,l:'٢٤ قيراط',p:1},{k:22,l:'٢٢ قيراط',p:22/24},{k:21,l:'٢١ قيراط',p:21/24},{k:18,l:'١٨ قيراط',p:18/24},{k:14,l:'١٤ قيراط',p:14/24},{k:12,l:'١٢ قيراط',p:12/24},{k:10,l:'١٠ قيراط',p:10/24}];
 const W={g:1,oz:31.1034768,mithqal:4.25,tola:11.6638,kg:1000};
 const WL={g:'جرام',oz:'أونصة',mithqal:'مثقال',tola:'تولة',kg:'كيلوجرام'};
 const DAYS=['الأحد','الإثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'];
-const SILVER_W=[{id:'g',l:'جرام'},{id:'oz',l:'أونصة (تروي)'},{id:'kg',l:'كيلوجرام'},{id:'tola',l:'تولة'},{id:'mithqal',l:'مثقال'}];
+const SILVER_W=[{id:'g',l:'جرام'},{id:'oz',l:'أونصة'},{id:'kg',l:'كيلوجرام'},{id:'tola',l:'تولة'},{id:'mithqal',l:'مثقال'}];
 
 let st={p:98.5,prev:97.8,open:97.9,high:99.1,low:97.5,curr:'SAR',wt:'g',ts:null};
 let sv={p:1.15,prev:1.13,sCurr:'SAR'};
 
+// ── API ──────────────────────────────────────────────────
 async function load(){
   try{
     const [gr,sr]=await Promise.all([
       fetch('https://www.goldapi.io/api/XAU/USD',{headers:{'x-access-token':'goldapi-c8bfcdd897d3aa82798ddfefc685eb5c-io'}}),
       fetch('https://www.goldapi.io/api/XAG/USD',{headers:{'x-access-token':'goldapi-c8bfcdd897d3aa82798ddfefc685eb5c-io'}})
     ]);
-    if(gr.ok){
-      const d=await gr.json();
-      st.p=d.price/31.1034768;
-      st.prev=(d.prev_close_price||d.price*0.995)/31.1034768;
-      st.open=(d.open_price||d.price*0.998)/31.1034768;
-      st.high=(d.high_price||d.price*1.005)/31.1034768;
-      st.low=(d.low_price||d.price*0.993)/31.1034768;
-    }
-    if(sr.ok){
-      const d=await sr.json();
-      sv.p=d.price/31.1034768;
-      sv.prev=(d.prev_close_price||d.price*0.995)/31.1034768;
-    }
-  }catch(e){console.warn('using fallback prices')}
+    if(gr.ok){const d=await gr.json();st.p=d.price/31.1034768;st.prev=(d.prev_close_price||d.price*0.995)/31.1034768;st.open=(d.open_price||d.price*0.998)/31.1034768;st.high=(d.high_price||d.price*1.005)/31.1034768;st.low=(d.low_price||d.price*0.993)/31.1034768;}
+    if(sr.ok){const d=await sr.json();sv.p=d.price/31.1034768;sv.prev=(d.prev_close_price||d.price*0.995)/31.1034768;}
+  }catch(e){console.warn('fallback prices')}
   st.ts=new Date();
   render();
 }
 
+// ── HELPERS ──────────────────────────────────────────────
 function n(v,d=2){return v.toLocaleString('ar-SA',{minimumFractionDigits:d,maximumFractionDigits:d})}
 function gp(purity,curr,wk='g'){return st.p*purity*R[curr]*W[wk]}
 function pct(){return((st.p-st.prev)/st.prev)*100}
 function spct(){return((sv.p-sv.prev)/sv.prev)*100}
 
+// ── RENDER ──────────────────────────────────────────────
 function render(){
   const pc=pct(),up=pc>=0;
-  // Quick cards (all karats in SAR/g)
-  const qmap={24:1,22:22/24,21:21/24,18:18/24,14:14/24,10:10/24};
-  Object.entries(qmap).forEach(([k,p])=>{
+  [{k:24,p:1},{k:22,p:22/24},{k:21,p:21/24},{k:18,p:18/24},{k:14,p:14/24},{k:10,p:10/24}].forEach(({k,p})=>{
     const el=document.getElementById('h'+k);
     const ce=document.getElementById('h'+k+'c');
-    if(el){el.textContent=n(st.p*p*R['SAR']);}
+    if(el)el.textContent=n(st.p*p*R['SAR']);
     if(ce){ce.textContent=(up?'▲':'▼')+' '+Math.abs(pc).toFixed(2)+'%';ce.className='qc-ch '+(up?'up':'down');}
   });
   const ts=st.ts?'آخر تحديث: '+st.ts.toLocaleTimeString('ar-SA'):'—';
   document.getElementById('heroTs').textContent=ts;
   document.getElementById('pricesTs').textContent=ts+' • يتحدث كل ٥ دقائق';
   document.getElementById('navTicker').textContent='ذهب ٢٤ · '+n(gp(1,'SAR'))+' ر.س · '+(up?'▲':'▼')+Math.abs(pc).toFixed(2)+'%';
-  renderGrid();
-  renderSilver();
-  renderStats();
-  renderHistory();
+  renderGrid();renderSilver();renderStats();renderHistory();renderMonthChart();
 }
 
 function renderGrid(){
@@ -532,11 +546,9 @@ function renderGrid(){
 function renderSilver(){
   const curr=sv.sCurr,pc=spct(),up=pc>=0;
   const ts=st.ts?'آخر تحديث: '+st.ts.toLocaleTimeString('ar-SA'):'—';
-  document.getElementById('silverTs').textContent=ts+' • يتحدث كل ٥ دقائق';
+  document.getElementById('silverTs').textContent=ts;
   document.getElementById('sgrid').innerHTML=SILVER_W.map(({id,l})=>{
-    const wv=W[id];
-    const price=sv.p*R[curr]*wv;
-    const chgAbs=(sv.p-sv.prev)*R[curr]*wv;
+    const wv=W[id],price=sv.p*R[curr]*wv,chgAbs=(sv.p-sv.prev)*R[curr]*wv;
     return`<div class="sc">
       <div class="sc-k">${l}</div>
       <div class="sc-v">${n(price)}</div>
@@ -557,71 +569,90 @@ function renderStats(){
 }
 
 function renderHistory(){
-  const base=st.p,r=R['SAR'];
-  const prices=[],rows=[];
+  const base=st.p,r=R['SAR'],rows=[];
   for(let i=6;i>=0;i--){
     const d=new Date();d.setDate(d.getDate()-i);
-    const drift=Math.sin(i*1.4)*0.007+(i%3)*0.002;
-    const p24=base*(1+drift*(i===0?0:0.12));
-    prices.push({d,p:p24*r});
+    const drift=Math.sin(i*1.7)*0.006+(i%3)*0.0015;
+    const p24=base*(1+(i===0?0:drift*0.1));
     rows.push({d,p24:p24*r,p22:p24*(22/24)*r,p21:p24*(21/24)*r,p18:p24*(18/24)*r});
   }
   document.getElementById('htbody').innerHTML=rows.map((row,idx)=>{
     const isT=idx===rows.length-1;
     const prev=idx>0?rows[idx-1].p24:row.p24;
     const chg=row.p24-prev,up=chg>=0;
-    const ds=row.d.toLocaleDateString('ar-SA',{weekday:'short',month:'short',day:'numeric'});
-    return`<tr ${isT?'style="background:rgba(154,100,72,0.06)"':''}>
-      <td style="color:var(--muted);font-size:.78rem">${ds}${isT?' <span style="color:var(--g1);font-size:.62rem">اليوم</span>':''}</td>
-      <td style="font-weight:800;color:var(--g2)">${n(row.p24)}</td>
+    const ds=row.d.toLocaleDateString('ar-SA',{weekday:'long',month:'short',day:'numeric'});
+    const pctStr=(((row.p24-prev)/prev)*100).toFixed(2);
+    return`<tr class="${isT?'today':''}">
+      <td style="font-size:.8rem;color:${isT?'var(--gold)':'var(--muted)'}">${ds}${isT?' ✦':''}</td>
+      <td style="font-weight:800;color:var(--gold)">${n(row.p24)}</td>
       <td>${n(row.p22)}</td><td>${n(row.p21)}</td><td>${n(row.p18)}</td>
-      <td><span class="${up?'up':'down'}" style="padding:.12rem .45rem;border-radius:4px;font-size:.7rem">${up?'▲':'▼'} ${n(Math.abs(chg))}</span></td>
+      <td><span class="${up?'up':'down'}" style="padding:.12rem .5rem;border-radius:6px;font-size:.72rem">${up?'▲':'▼'} ${n(Math.abs(chg))}</span></td>
+      <td><span class="${up?'up':'down'}" style="padding:.12rem .5rem;border-radius:6px;font-size:.72rem">${up?'+':''}${pctStr}%</span></td>
     </tr>`;
   }).join('');
-  drawChart(prices.map(p=>p.p));
 }
 
-function drawChart(prices){
-  const el=document.getElementById('chart');
+function renderMonthChart(){
+  const el=document.getElementById('chartMonth');
+  if(!el)return;
   const ctx=el.getContext('2d');
   const dpr=window.devicePixelRatio||1;
-  el.width=el.offsetWidth*dpr;el.height=190*dpr;
+  el.width=el.offsetWidth*dpr;el.height=210*dpr;
   ctx.scale(dpr,dpr);
-  const CW=el.offsetWidth,H=190,pad={t:16,r:16,b:36,l:56};
+  const CW=el.offsetWidth,H=210,pad={t:20,r:20,b:40,l:62};
   const cW=CW-pad.l-pad.r,cH=H-pad.t-pad.b;
   ctx.clearRect(0,0,CW,H);
-  const mn=Math.min(...prices)*0.9995,mx=Math.max(...prices)*1.0005;
+  // Generate 30 days of simulated data
+  const base=st.p*R['SAR'];
+  const prices=[];
+  for(let i=29;i>=0;i--){
+    const drift=Math.sin(i*0.4)*0.012+Math.cos(i*0.7)*0.008+(i%7)*0.001;
+    prices.push(base*(1+(i===0?0:drift)));
+  }
+  const mn=Math.min(...prices)*0.9992,mx=Math.max(...prices)*1.0008;
   const tx=i=>pad.l+(i/(prices.length-1))*cW;
   const ty=v=>pad.t+(1-(v-mn)/(mx-mn))*cH;
-  ctx.strokeStyle='rgba(255,255,255,0.05)';ctx.lineWidth=1;
-  for(let i=0;i<4;i++){const y=pad.t+(i/3)*cH;ctx.beginPath();ctx.moveTo(pad.l,y);ctx.lineTo(pad.l+cW,y);ctx.stroke();const val=mx-(i/3)*(mx-mn);ctx.fillStyle='var(--muted2)';ctx.font=`11px Almarai`;ctx.textAlign='right';ctx.fillText(n(val,0),pad.l-6,y+4);}
+  // Grid lines
+  ctx.strokeStyle='rgba(184,146,42,0.1)';ctx.lineWidth=1;
+  for(let i=0;i<=4;i++){
+    const y=pad.t+(i/4)*cH;
+    ctx.beginPath();ctx.moveTo(pad.l,y);ctx.lineTo(pad.l+cW,y);ctx.stroke();
+    const val=mx-(i/4)*(mx-mn);
+    ctx.fillStyle='#9a7a54';ctx.font=`11px Almarai`;ctx.textAlign='right';ctx.fillText(n(val,0),pad.l-6,y+4);
+  }
+  // Fill
   const grad=ctx.createLinearGradient(0,pad.t,0,pad.t+cH);
-  grad.addColorStop(0,'rgba(140,124,66,0.22)');grad.addColorStop(1,'rgba(140,124,66,0)');
+  grad.addColorStop(0,'rgba(184,146,42,0.18)');grad.addColorStop(1,'rgba(184,146,42,0.02)');
   ctx.beginPath();ctx.moveTo(tx(0),ty(prices[0]));
   prices.forEach((p,i)=>{if(i>0)ctx.lineTo(tx(i),ty(p));});
   ctx.lineTo(tx(prices.length-1),pad.t+cH);ctx.lineTo(tx(0),pad.t+cH);ctx.closePath();
   ctx.fillStyle=grad;ctx.fill();
+  // Line
   ctx.beginPath();ctx.moveTo(tx(0),ty(prices[0]));
   prices.forEach((p,i)=>{if(i>0)ctx.lineTo(tx(i),ty(p));});
-  ctx.strokeStyle='var(--g1)';ctx.lineWidth=2.2;ctx.lineJoin='round';ctx.stroke();
-  prices.forEach((p,i)=>{
-    ctx.beginPath();ctx.arc(tx(i),ty(p),i===prices.length-1?5:3.5,0,Math.PI*2);
-    ctx.fillStyle=i===prices.length-1?'var(--g2)':'var(--g1)';ctx.fill();
-    const d=new Date();d.setDate(d.getDate()-(prices.length-1-i));
-    ctx.fillStyle='var(--muted2)';ctx.font='10px Almarai';ctx.textAlign='center';
-    ctx.fillText(DAYS[d.getDay()],tx(i),H-8);
+  ctx.strokeStyle='#b8922a';ctx.lineWidth=2.5;ctx.lineJoin='round';ctx.stroke();
+  // Week labels
+  ctx.fillStyle='#9a7a54';ctx.font='10px Almarai';ctx.textAlign='center';
+  [0,7,14,21,29].forEach(i=>{
+    const d=new Date();d.setDate(d.getDate()-(29-i));
+    ctx.fillText(d.getDate()+'/'+(d.getMonth()+1),tx(i),H-10);
   });
+  // Last dot
+  ctx.beginPath();ctx.arc(tx(prices.length-1),ty(prices[prices.length-1]),5,0,Math.PI*2);
+  ctx.fillStyle='#b8922a';ctx.fill();
 }
 
+// ── CONTROLS ──────────────────────────────────────────────
 function setCurr(btn,c){document.querySelectorAll('#cTabs .tab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');st.curr=c;renderGrid();}
 function setW(btn,w){document.querySelectorAll('.wtab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');st.wt=w;renderGrid();}
 function setSilverCurr(btn,c){document.querySelectorAll('#sTabs .tab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');sv.sCurr=c;renderSilver();}
 
+// ── CALCS ──────────────────────────────────────────────
 function quickCalc(){
   const wt=parseFloat(document.getElementById('qw').value)||0;
   const un=parseFloat(document.getElementById('qu').value);
   const ka=parseFloat(document.getElementById('qk').value);
-  const cu=document.getElementById('qc').value;
+  const cu=document.getElementById('qc_s').value;
   const total=st.p*ka*R[cu]*wt*un;
   const ul=document.getElementById('qu').options[document.getElementById('qu').selectedIndex].text;
   const kl=document.getElementById('qk').options[document.getElementById('qk').selectedIndex].text;
@@ -640,7 +671,7 @@ function calcPrice(){
   const purity=metal==='silver'?1:ka;
   const total=baseP*purity*R[cu]*wt*un;
   const ul=document.getElementById('pc_u').options[document.getElementById('pc_u').selectedIndex].text;
-  const kl=metal==='silver'?'فضة خالصة':document.getElementById('pc_k').options[document.getElementById('pc_k').selectedIndex].text;
+  const kl=metal==='silver'?'فضة':document.getElementById('pc_k').options[document.getElementById('pc_k').selectedIndex].text;
   document.getElementById('pc_rv').textContent=n(total)+' '+S[cu];
   document.getElementById('pc_rn').textContent=wt+' '+ul+' · '+kl+' · '+n(baseP*purity*R[cu])+' '+S[cu]+'/جرام';
   document.getElementById('pc_r').classList.add('show');
@@ -652,15 +683,10 @@ function calcZakat(){
   const sG=parseFloat(document.getElementById('zk_s').value)||0;
   const mo=parseFloat(document.getElementById('zk_m').value)||0;
   const mC=document.getElementById('zk_mc').value;
-  const sarPG=st.p*R['SAR'];
-  const sPG=sv.p*R['SAR'];
+  const sarPG=st.p*R['SAR'],sPG=sv.p*R['SAR'];
   const nisab=Math.min(85*sarPG,595*sPG);
-  const gVal=gG*gK*sarPG;
-  const sVal=sG*sPG;
-  const mVal=mo*R['SAR']/R[mC];
-  const total=gVal+sVal+mVal;
-  const ok=total>=nisab;
-  const zakat=ok?total*0.025:0;
+  const gVal=gG*gK*sarPG,sVal=sG*sPG,mVal=mo*R['SAR']/R[mC];
+  const total=gVal+sVal+mVal,ok=total>=nisab,zakat=ok?total*0.025:0;
   document.getElementById('zk_rows').innerHTML=`
     <div class="zrow"><span class="zrow-l">قيمة الذهب</span><span class="zrow-v">${n(gVal)} ر.س</span></div>
     <div class="zrow"><span class="zrow-l">قيمة الفضة</span><span class="zrow-v">${n(sVal)} ر.س</span></div>
@@ -669,26 +695,37 @@ function calcZakat(){
     <div class="zrow"><span class="zrow-l">النصاب الشرعي</span><span class="zrow-v">${n(nisab)} ر.س</span></div>
     <div class="zrow zrow-total">
       <span class="zrow-l" style="color:${ok?'var(--green)':'var(--red)'};font-weight:800">${ok?'✅ تجب عليك الزكاة':'❌ لم يبلغ النصاب'}</span>
-      <span class="zrow-v" style="font-size:1.1rem">${n(zakat)} ر.س</span>
+      <span class="zrow-v" style="font-size:1.1rem;color:var(--gold)">${n(zakat)} ر.س</span>
     </div>
     ${ok?'<div style="font-size:.7rem;color:var(--muted);text-align:center;margin-top:.4rem">ربع العُشر (٢.٥٪) من إجمالي أصولك الزكوية</div>':''}`;
   document.getElementById('zk_r').classList.add('show');
 }
 
 const IDS=['i1','i2','i3','i4','i5','i6','i7','i8'];
-function tog(id){
-  const open=document.getElementById(id).classList.contains('show');
-  IDS.forEach(i=>document.getElementById(i).classList.remove('show'));
-  if(!open){document.getElementById(id).classList.add('show');document.getElementById(id).scrollIntoView({behavior:'smooth',block:'nearest'});}
+function tog(id){const open=document.getElementById(id).classList.contains('show');IDS.forEach(i=>document.getElementById(i).classList.remove('show'));if(!open){document.getElementById(id).classList.add('show');document.getElementById(id).scrollIntoView({behavior:'smooth',block:'nearest'});}}
+
+// ── 3D PARTICLES ──────────────────────────────────────────
+function initParticles(){
+  const cont=document.getElementById('ptcl');
+  const colors=['rgba(184,146,42,0.35)','rgba(212,168,60,0.25)','rgba(240,200,74,0.2)','rgba(184,146,42,0.15)'];
+  for(let i=0;i<22;i++){
+    const d=document.createElement('div');
+    d.className='p-dot';
+    const sz=Math.random()*8+3;
+    d.style.cssText=`width:${sz}px;height:${sz}px;left:${Math.random()*100}%;background:${colors[Math.floor(Math.random()*colors.length)]};animation-duration:${Math.random()*18+10}s;animation-delay:${Math.random()*12}s;`;
+    cont.appendChild(d);
+  }
 }
 
-const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('vis'),i*80);obs.unobserve(e.target);}});},{threshold:0.06});
+// ── SCROLL REVEAL ─────────────────────────────────────────
+const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('vis'),i*70);obs.unobserve(e.target);}});},{threshold:0.06});
 document.querySelectorAll('.fi').forEach(el=>obs.observe(el));
 
-window.addEventListener('resize',()=>{if(st.ts)renderHistory();});
+window.addEventListener('resize',()=>{if(st.ts){renderMonthChart();}});
 
+initParticles();
 load();
-setInterval(load, 5*60*1000);
+setInterval(load,5*60*1000);
 </script>
 </body>
 </html>

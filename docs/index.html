@@ -25,6 +25,11 @@ html{scroll-behavior:smooth}
 body{font-family:'Almarai',sans-serif;background:var(--cream);color:var(--dark);overflow-x:hidden;line-height:1.6}
 ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--cream2)}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
 
+/* TOP PROGRESS BAR */
+#progress-bar{position:fixed;top:0;left:0;right:0;height:3px;z-index:9999;background:linear-gradient(90deg,var(--gold),var(--gold3),var(--gold));background-size:200% 100%;animation:progressShimmer 2s linear infinite,progressLoad 1.4s ease forwards;transform-origin:right}
+@keyframes progressShimmer{0%{background-position:100% 0}100%{background-position:-100% 0}}
+@keyframes progressLoad{0%{transform:scaleX(0)}100%{transform:scaleX(1)}}
+
 /* 3D PARTICLES */
 .particles{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
 .p-dot{position:absolute;border-radius:50%;opacity:0;animation:floatDot linear infinite}
@@ -32,26 +37,27 @@ body{font-family:'Almarai',sans-serif;background:var(--cream);color:var(--dark);
 
 /* NAV */
 nav{position:sticky;top:0;z-index:999;background:rgba(253,246,237,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:.8rem 4vw;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;box-shadow:0 2px 20px var(--shadow)}
+nav::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(184,146,42,0.6),rgba(240,200,74,0.8),rgba(184,146,42,0.6),transparent);animation:navShimmer 3s ease infinite}
+@keyframes navShimmer{0%,100%{opacity:.5}50%{opacity:1}}
 .nav-brand{display:flex;align-items:center;gap:.7rem;flex:1}
-.nav-logo{width:44px;height:44px;display:flex;align-items:center;justify-content:center;flex-shrink:0;animation:logoPulse 3s ease infinite;filter:drop-shadow(0 3px 8px rgba(184,146,42,0.45))}
-@keyframes logoPulse{0%,100%{box-shadow:0 4px 14px rgba(184,146,42,0.4)}50%{box-shadow:0 4px 22px rgba(184,146,42,0.7)}}
+.nav-logo{display:flex;align-items:center;justify-content:center;flex-shrink:0;filter:drop-shadow(0 3px 8px rgba(184,146,42,0.45));animation:logoPulse 3s ease infinite}
+@keyframes logoPulse{0%,100%{filter:drop-shadow(0 3px 8px rgba(184,146,42,0.4))}50%{filter:drop-shadow(0 3px 18px rgba(184,146,42,0.75))}}
 .nav-title{font-size:1.05rem;font-weight:800;color:var(--dark)}
 .nav-title span{color:var(--muted);font-weight:300;font-size:.7rem;display:block;margin-top:-3px}
 .nav-live{display:flex;align-items:center;gap:.4rem;background:rgba(22,163,74,0.1);border:1px solid rgba(22,163,74,0.3);border-radius:999px;padding:.28rem .85rem;font-size:.72rem;font-weight:700;color:var(--green)}
 .live-dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:livePulse 1.5s ease infinite;flex-shrink:0}
 @keyframes livePulse{0%,100%{box-shadow:0 0 0 0 rgba(22,163,74,0.6)}50%{box-shadow:0 0 0 5px rgba(22,163,74,0)}}
-.nav-ticker{font-size:.78rem;color:var(--gold);font-weight:800;white-space:nowrap;background:var(--gold-light);border:1px solid var(--border2);padding:.3rem .9rem;border-radius:var(--radius3)}
+.nav-ticker{font-size:.78rem;color:var(--gold);font-weight:800;white-space:nowrap;background:var(--gold-light);border:1px solid var(--border2);padding:.3rem .9rem;border-radius:var(--radius3);transition:all .3s}
 
 /* HERO */
 #hero{position:relative;padding:3rem 4vw 1.5rem;text-align:center;z-index:1;overflow:hidden}
 #hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 0%,rgba(212,168,60,0.12) 0%,transparent 70%);pointer-events:none}
 .hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:var(--gold-light);border:1px solid var(--border2);border-radius:999px;padding:.4rem 1.2rem;font-size:.72rem;font-weight:700;color:var(--gold);margin-bottom:1rem;animation:badgePop .6s ease}
 @keyframes badgePop{from{opacity:0;transform:scale(.9) translateY(8px)}to{opacity:1;transform:none}}
-.hero-h{font-size:clamp(1.8rem,5vw,3rem);font-weight:800;line-height:1.2;margin-bottom:.5rem}
 .hero-h em{font-style:normal;background:linear-gradient(135deg,var(--dark2),var(--gold),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hero-sub{font-size:.88rem;color:var(--muted);max-width:540px;margin:0 auto .5rem}
 
-/* 3D QUICK CARD WRAP */
+/* QUICK CARD WRAP */
 .quick-wrap{background:var(--white);border:1px solid var(--border2);border-radius:var(--radius);padding:2rem;margin:0 4vw 0;position:relative;overflow:hidden;box-shadow:0 8px 40px var(--shadow),0 1px 0 rgba(255,255,255,0.9) inset;transform-style:preserve-3d;transition:transform .3s ease}
 .quick-wrap:hover{transform:perspective(800px) rotateX(.8deg)}
 .quick-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold),var(--gold3),transparent)}
@@ -59,35 +65,24 @@ nav{position:sticky;top:0;z-index:999;background:rgba(253,246,237,0.92);backdrop
 .quick-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.3rem;flex-wrap:wrap;gap:.6rem;position:relative;z-index:1}
 .ql{font-size:.62rem;font-weight:700;letter-spacing:.28em;color:var(--gold);text-transform:uppercase}
 .qt{font-size:.7rem;color:var(--muted2)}
-.qcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:.75rem;margin-bottom:1.5rem;position:relative;z-index:1}
-.qc{background:var(--cream);border:1px solid var(--border);border-radius:var(--radius2);padding:1rem;text-align:center;transition:.3s;cursor:default;position:relative;overflow:hidden}
-.qc:hover{background:var(--white);border-color:var(--border2);transform:translateY(-4px) scale(1.02);box-shadow:0 10px 28px var(--shadow)}
+.qcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:.75rem;position:relative;z-index:1}
+.qc{background:var(--cream);border:1px solid var(--border);border-radius:var(--radius2);padding:1rem;text-align:center;transition:all .3s;cursor:default;position:relative;overflow:hidden}
+.qc:hover{background:var(--white);border-color:var(--gold2);transform:translateY(-5px) scale(1.03);box-shadow:0 12px 32px var(--shadow),0 0 0 1px rgba(184,146,42,0.15)}
 .qc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:.3s}
 .qc:hover::before{opacity:1}
-.qc-k{font-size:.6rem;font-weight:700;letter-spacing:.1em;color:var(--muted);margin-bottom:.3rem;text-transform:uppercase}
+.qc-k{font-size:.6rem;font-weight:700;letter-spacing:.1em;color:var(--muted);margin-bottom:.3rem;text-transform:uppercase;cursor:help;position:relative}
 .qc-p{font-size:1.3rem;font-weight:800;color:var(--dark)}
+.qc-p.updated{animation:numPop .45s cubic-bezier(.34,1.56,.64,1)}
+@keyframes numPop{0%{transform:scale(1)}50%{transform:scale(1.14)}100%{transform:scale(1)}}
 .qc-u{font-size:.6rem;color:var(--muted2);margin-top:.1rem}
 .qc-ch{display:inline-flex;align-items:center;gap:.2rem;margin-top:.4rem;font-size:.7rem;font-weight:700;padding:.18rem .5rem;border-radius:999px}
 .up{color:var(--green)!important;background:rgba(22,163,74,0.1)!important}
 .down{color:var(--red)!important;background:rgba(220,38,38,0.1)!important}
 
-/* QUICK CALC */
-.qcalc-wrap{border-top:1px solid var(--border);padding-top:1.3rem;position:relative;z-index:1}
-.qcalc{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr)) auto;gap:.6rem;align-items:end}
-label{font-size:.65rem;font-weight:700;color:var(--muted);letter-spacing:.04em;display:block;margin-bottom:.25rem}
-input,select{background:var(--cream);border:1px solid var(--border);color:var(--dark);font-family:'Almarai',sans-serif;font-size:.85rem;padding:.58rem .85rem;border-radius:var(--radius3);outline:none;transition:.2s;width:100%}
-input:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(184,146,42,0.12);background:var(--white)}
-select option{background:var(--white)}
-.btn-g{padding:.7rem 1.4rem;background:linear-gradient(135deg,var(--gold),var(--gold3));color:#fff;font-family:'Almarai',sans-serif;font-size:.88rem;font-weight:800;border:none;border-radius:var(--radius3);cursor:pointer;transition:.25s;box-shadow:0 4px 14px rgba(184,146,42,0.4);white-space:nowrap}
-.btn-g:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(184,146,42,0.5)}
-.btn-g:active{transform:translateY(0)}
-.btn-g.full{width:100%;padding:.78rem}
-.qresult{background:linear-gradient(135deg,var(--gold-light),rgba(253,240,204,0.5));border:1px solid var(--border2);border-radius:var(--radius3);padding:.85rem 1.1rem;margin-top:.8rem;display:none;text-align:center}
-.qresult.show{display:block;animation:fadeIn .3s ease}
-@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-.qr-label{font-size:.65rem;color:var(--muted);font-weight:700;margin-bottom:.2rem}
-.qr-val{font-size:1.8rem;font-weight:800;color:var(--gold)}
-.qr-note{font-size:.7rem;color:var(--muted);margin-top:.2rem}
+/* TOOLTIP */
+[data-tip]{position:relative}
+[data-tip]:hover::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 8px);right:50%;transform:translateX(50%);background:var(--dark2);color:#fff;font-size:.65rem;white-space:nowrap;padding:.35rem .75rem;border-radius:var(--radius3);box-shadow:0 4px 14px rgba(0,0,0,0.25);pointer-events:none;z-index:100;font-family:'Almarai',sans-serif;animation:fadeIn .2s ease}
+[data-tip]:hover::before{content:'';position:absolute;bottom:calc(100% + 2px);right:50%;transform:translateX(50%);border:5px solid transparent;border-top-color:var(--dark2);pointer-events:none;z-index:100}
 
 /* SECTION */
 .sec{padding:2.5rem 4vw;position:relative;z-index:1}
@@ -100,25 +95,26 @@ select option{background:var(--white)}
 
 /* TABS */
 .tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.1rem}
-.tab{padding:.42rem .9rem;border-radius:var(--radius3);border:1px solid var(--border);background:var(--white);color:var(--muted);font-family:'Almarai',sans-serif;font-size:.76rem;font-weight:700;cursor:pointer;transition:.2s}
+.tab{padding:.42rem .9rem;border-radius:var(--radius3);border:1px solid var(--border);background:var(--white);color:var(--muted);font-family:'Almarai',sans-serif;font-size:.76rem;font-weight:700;cursor:pointer;transition:all .3s}
 .tab:hover{border-color:var(--gold2);color:var(--gold)}
 .tab.active{background:linear-gradient(135deg,var(--gold),var(--gold3));color:#fff;border-color:transparent;box-shadow:0 4px 14px rgba(184,146,42,0.4)}
-.wtab{padding:.32rem .8rem;border-radius:var(--radius3);border:1px solid var(--border);background:var(--white);color:var(--muted);font-family:'Almarai',sans-serif;font-size:.73rem;cursor:pointer;transition:.2s}
+.wtab{padding:.32rem .8rem;border-radius:var(--radius3);border:1px solid var(--border);background:var(--white);color:var(--muted);font-family:'Almarai',sans-serif;font-size:.73rem;cursor:pointer;transition:all .3s}
 .wtab.active{background:var(--gold-light);border-color:var(--border2);color:var(--dark);font-weight:700}
 
 /* PRICES GRID */
 .pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:1px;background:var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:0 4px 24px var(--shadow2)}
-.pc{background:var(--white);padding:1.2rem .9rem;text-align:center;transition:.25s;position:relative}
-.pc:hover{background:var(--gold-light);z-index:1;transform:scale(1.02);box-shadow:0 6px 20px var(--shadow)}
+.pc{background:var(--white);padding:1.2rem .9rem;text-align:center;transition:all .3s;position:relative}
+.pc:hover{background:var(--gold-light);z-index:1;transform:scale(1.03);box-shadow:0 8px 28px var(--shadow),0 0 0 1px rgba(184,146,42,0.2)}
 .pc-k{font-size:.6rem;font-weight:700;letter-spacing:.1em;color:var(--gold);margin-bottom:.4rem;text-transform:uppercase}
-.pc-v{font-size:1.15rem;font-weight:800;color:var(--dark)}
+.pc-v{font-size:1.15rem;font-weight:800;color:var(--dark);transition:all .3s}
+.pc-v.updated{animation:numPop .45s cubic-bezier(.34,1.56,.64,1)}
 .pc-u{font-size:.62rem;color:var(--muted2);margin-top:.12rem}
 .pc-c{font-size:.67rem;font-weight:700;margin-top:.35rem;display:inline-flex;align-items:center;gap:.18rem;padding:.12rem .45rem;border-radius:999px}
 
 /* SILVER GRID */
 .sgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:rgba(154,122,84,0.15);border-radius:var(--radius);overflow:hidden;box-shadow:0 4px 24px var(--shadow2)}
-.sc{background:var(--white);padding:1.2rem .9rem;text-align:center;transition:.25s}
-.sc:hover{background:rgba(245,237,224,0.8)}
+.sc{background:var(--white);padding:1.2rem .9rem;text-align:center;transition:all .3s}
+.sc:hover{background:rgba(245,237,224,0.8);transform:scale(1.02);box-shadow:0 6px 20px var(--shadow2)}
 .sc-k{font-size:.6rem;font-weight:700;letter-spacing:.1em;color:var(--muted);margin-bottom:.4rem;text-transform:uppercase}
 .sc-v{font-size:1.15rem;font-weight:800;color:var(--dark2)}
 .sc-u{font-size:.62rem;color:var(--muted2);margin-top:.12rem}
@@ -128,7 +124,7 @@ select option{background:var(--white)}
 .htable{width:100%;border-collapse:collapse;font-size:.83rem}
 .htable thead{background:linear-gradient(135deg,var(--gold),var(--gold2))}
 .htable th{padding:.75rem 1rem;text-align:right;font-weight:700;font-size:.68rem;letter-spacing:.06em;color:#fff}
-.htable td{padding:.75rem 1rem;border-bottom:1px solid var(--border);color:var(--dark)}
+.htable td{padding:.75rem 1rem;border-bottom:1px solid var(--border);color:var(--dark);transition:background .2s}
 .htable tbody tr:last-child td{border-bottom:none}
 .htable tbody tr:hover td{background:var(--gold-light)}
 .htable tbody tr.today td{background:rgba(184,146,42,0.06);font-weight:700}
@@ -140,15 +136,15 @@ select option{background:var(--white)}
 
 /* STATS */
 .srow{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:1px;background:var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:0 4px 24px var(--shadow2)}
-.sbox{background:var(--white);padding:1.1rem .8rem;text-align:center;transition:.2s}
-.sbox:hover{background:var(--gold-light)}
+.sbox{background:var(--white);padding:1.1rem .8rem;text-align:center;transition:all .3s}
+.sbox:hover{background:var(--gold-light);transform:scale(1.04)}
 .sbox-v{font-size:1.15rem;font-weight:800;color:var(--gold)}
 .sbox-l{font-size:.63rem;color:var(--muted);margin-top:.15rem;font-weight:700}
 
 /* CALC CARDS */
 .cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.4rem}
-.ccard{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.8rem;box-shadow:0 4px 24px var(--shadow2);position:relative;overflow:hidden;transition:.3s}
-.ccard:hover{transform:translateY(-3px);box-shadow:0 12px 36px var(--shadow)}
+.ccard{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.8rem;box-shadow:0 4px 24px var(--shadow2);position:relative;overflow:hidden;transition:all .3s}
+.ccard:hover{transform:translateY(-4px);box-shadow:0 16px 42px var(--shadow),0 0 0 1px rgba(184,146,42,0.12)}
 .ccard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
 .cc-t{font-size:.95rem;font-weight:800;margin-bottom:.2rem;color:var(--dark)}
 .cc-s{font-size:.75rem;color:var(--muted);margin-bottom:1.2rem}
@@ -168,14 +164,14 @@ select option{background:var(--white)}
 
 /* INFO CARDS */
 .igrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
-.icard{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;transition:.3s;cursor:pointer;position:relative;overflow:hidden}
-.icard:hover{border-color:var(--border2);transform:translateY(-3px);box-shadow:0 10px 30px var(--shadow)}
+.icard{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;transition:all .3s;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 2px 10px var(--shadow2)}
+.icard:hover{border-color:var(--border2);transform:translateY(-4px);box-shadow:0 12px 36px var(--shadow),0 0 0 1px rgba(184,146,42,0.1)}
 .icard::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(184,146,42,0.06),transparent);opacity:0;transition:.3s}
 .icard:hover::after{opacity:1}
 .ic-ico{width:42px;height:42px;border-radius:12px;background:var(--gold-light);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:.8rem}
 .ic-t{font-size:.88rem;font-weight:800;margin-bottom:.28rem;color:var(--dark)}
 .ic-d{font-size:.75rem;color:var(--muted);line-height:1.7}
-.ic-arr{position:absolute;top:1.2rem;left:1.2rem;color:var(--muted2);font-size:.85rem;transition:.3s}
+.ic-arr{position:absolute;top:1.2rem;left:1.2rem;color:var(--muted2);font-size:.85rem;transition:all .3s}
 .icard:hover .ic-arr{color:var(--gold);transform:translateX(-4px)}
 .content-box{background:var(--cream);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;display:none;margin-top:.9rem}
 .content-box.show{display:block;animation:fadeIn .35s ease}
@@ -183,12 +179,25 @@ select option{background:var(--white)}
 .content-box p{color:var(--muted);font-size:.8rem;line-height:1.9}
 .timestamp{font-size:.68rem;color:var(--muted2);text-align:center;margin-top:.8rem}
 
+/* FORM */
+label{font-size:.65rem;font-weight:700;color:var(--muted);letter-spacing:.04em;display:block;margin-bottom:.25rem}
+input,select{background:var(--cream);border:1px solid var(--border);color:var(--dark);font-family:'Almarai',sans-serif;font-size:.85rem;padding:.58rem .85rem;border-radius:var(--radius3);outline:none;transition:all .3s;width:100%}
+input:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(184,146,42,0.12);background:var(--white)}
+select option{background:var(--white)}
+.btn-g{padding:.7rem 1.4rem;background:linear-gradient(135deg,var(--gold),var(--gold3));color:#fff;font-family:'Almarai',sans-serif;font-size:.88rem;font-weight:800;border:none;border-radius:var(--radius3);cursor:pointer;transition:all .3s;box-shadow:0 4px 14px rgba(184,146,42,0.4);white-space:nowrap}
+.btn-g:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(184,146,42,0.55)}
+.btn-g:active{transform:translateY(0)}
+.btn-g.full{width:100%;padding:.78rem}
+
+/* ANIMATIONS */
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
 /* FOOTER */
 footer{background:var(--dark);color:rgba(255,255,255,0.7);padding:2rem 4vw;text-align:center}
 .f-logo{font-size:1.1rem;font-weight:800;color:var(--gold2);margin-bottom:.5rem}
 .f-copy{font-size:.72rem;margin-bottom:1rem;line-height:2}
 .f-creator{font-size:.72rem;color:rgba(255,255,255,0.45);margin-bottom:1rem}
-.wa-btn{display:inline-flex;align-items:center;gap:.55rem;background:#25D366;color:#fff;font-family:'Almarai',sans-serif;font-size:.88rem;font-weight:700;padding:.7rem 1.6rem;border-radius:999px;text-decoration:none;transition:.25s;box-shadow:0 4px 16px rgba(37,211,102,0.4)}
+.wa-btn{display:inline-flex;align-items:center;gap:.55rem;background:#25D366;color:#fff;font-family:'Almarai',sans-serif;font-size:.88rem;font-weight:700;padding:.7rem 1.6rem;border-radius:999px;text-decoration:none;transition:all .3s;box-shadow:0 4px 16px rgba(37,211,102,0.4)}
 .wa-btn:hover{background:#1ebe5a;transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,0.5)}
 .wa-icon{font-size:1.1rem}
 
@@ -196,19 +205,47 @@ footer{background:var(--dark);color:rgba(255,255,255,0.7);padding:2rem 4vw;text-
 .fi{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
 .fi.vis{opacity:1;transform:none}
 
-/* 3D SECTION DIVIDER */
+/* DIVIDER */
 .divider{height:3px;background:linear-gradient(90deg,transparent,var(--border2),transparent);margin:0 4vw}
+
+/* FLOATING CALCULATOR BUTTON */
+#float-calc-btn{position:fixed;bottom:1.5rem;left:1.5rem;z-index:998;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;border:none;background:none;padding:0;transition:all .3s}
+.fcb-circle{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold3));box-shadow:0 6px 22px rgba(184,146,42,0.55),0 2px 6px rgba(0,0,0,0.12);display:flex;align-items:center;justify-content:center;font-size:1.5rem;transition:all .3s}
+#float-calc-btn:hover .fcb-circle{transform:scale(1.12);box-shadow:0 10px 30px rgba(184,146,42,0.7)}
+.fcb-label{font-size:.62rem;font-weight:800;color:var(--gold);font-family:'Almarai',sans-serif;background:var(--white);padding:.15rem .55rem;border-radius:999px;box-shadow:0 2px 8px var(--shadow);border:1px solid var(--border2);transition:all .3s}
+#float-calc-btn:hover .fcb-label{background:var(--gold-light)}
+
+/* MODAL */
+#calc-modal-overlay{position:fixed;inset:0;z-index:2000;background:rgba(26,15,4,0.55);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;padding:1rem}
+#calc-modal-overlay.open{display:flex;animation:modalFadeIn .3s ease}
+@keyframes modalFadeIn{from{opacity:0}to{opacity:1}}
+.calc-modal{background:var(--white);border-radius:var(--radius);border:1px solid var(--border2);box-shadow:0 24px 80px rgba(26,15,4,0.35),0 0 0 1px rgba(184,146,42,0.15);padding:2rem;width:100%;max-width:480px;position:relative;animation:modalSlideUp .35s cubic-bezier(.34,1.2,.64,1);overflow:hidden}
+@keyframes modalSlideUp{from{transform:translateY(30px);opacity:0}to{transform:translateY(0);opacity:1}}
+.calc-modal::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,transparent,var(--gold),var(--gold3),var(--gold),transparent)}
+.calc-modal-close{position:absolute;top:1rem;left:1rem;width:32px;height:32px;border-radius:50%;background:var(--cream2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.9rem;color:var(--muted);transition:all .3s;font-family:'Almarai',sans-serif;line-height:1}
+.calc-modal-close:hover{background:var(--gold-light);border-color:var(--border2);color:var(--dark)}
+.calc-modal-title{font-size:1.1rem;font-weight:800;color:var(--dark);margin-bottom:.25rem}
+.calc-modal-sub{font-size:.75rem;color:var(--muted);margin-bottom:1.5rem}
+.modal-qcalc{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:.75rem}
+.modal-qcalc .fg.full{grid-column:1/-1}
+.modal-result{background:linear-gradient(135deg,var(--gold-light),rgba(253,240,204,0.6));border:1px solid var(--border2);border-radius:var(--radius3);padding:1rem 1.2rem;text-align:center;display:none;margin-top:.5rem}
+.modal-result.show{display:block;animation:fadeIn .3s ease}
+.mr-label{font-size:.65rem;color:var(--muted);font-weight:700;margin-bottom:.25rem}
+.mr-val{font-size:2rem;font-weight:800;color:var(--gold)}
+.mr-note{font-size:.72rem;color:var(--muted);margin-top:.3rem}
 
 @media(max-width:640px){
   .frow{grid-template-columns:1fr}
-  .qcalc{grid-template-columns:1fr 1fr}
-  .qcalc .btn-g{grid-column:1/-1;width:100%}
-  .qc-p{font-size:1.1rem}
-  .quick-wrap{margin:0 3vw}
+  .modal-qcalc{grid-template-columns:1fr}
+  .modal-qcalc .fg.full{grid-column:1}
+  #float-calc-btn{bottom:1rem;left:1rem}
 }
 </style>
 </head>
 <body>
+
+<!-- TOP PROGRESS BAR -->
+<div id="progress-bar"></div>
 
 <!-- PARTICLES 3D -->
 <div class="particles" id="ptcl"></div>
@@ -247,65 +284,40 @@ footer{background:var(--dark);color:rgba(255,255,255,0.7);padding:2rem 4vw;text-
   </div>
   <div class="hero-badge">⬡ يتحدث تلقائياً كل ٥ دقائق • المصدر: سعر الذهب العالمي</div>
   <div style="margin-bottom:.3rem"><span class="brand-name" style="font-size:clamp(2.2rem,6vw,3.8rem)">الديـــــــري</span></div>
-  <h1 class="hero-h" style="font-size:clamp(1.2rem,3vw,1.8rem);margin-bottom:.5rem">أسعار الذهب والفضة — <em>في الخليج والعالم</em></h1>
+  <h1 style="font-size:clamp(1.2rem,3vw,1.8rem);font-weight:800;margin-bottom:.5rem">أسعار الذهب والفضة — <em style="font-style:normal;background:linear-gradient(135deg,var(--dark2),var(--gold),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">في الخليج والعالم</em></h1>
   <p class="hero-sub">جميع العيارات • جميع العملات الخليجية والدولار • أسعار حية محدّثة</p>
 </section>
 
-<!-- QUICK PRICES + CALC -->
+<!-- QUICK PRICES ONLY (calculator moved to floating button) -->
 <div class="quick-wrap fi">
   <div class="quick-top">
     <div class="ql">⚡ أسعار الذهب الآن — ريال سعودي / جرام</div>
     <div class="qt" id="heroTs">جارٍ التحميل...</div>
   </div>
   <div class="qcards" id="quickCards">
-    <div class="qc"><div class="qc-k">٢٤ قيراط</div><div class="qc-p" id="h24">—</div><div class="qc-u">ر.س / جرام</div><div class="qc-ch up" id="h24c">—</div></div>
-    <div class="qc"><div class="qc-k">٢٢ قيراط</div><div class="qc-p" id="h22">—</div><div class="qc-u">ر.س / جرام</div><div class="qc-ch up" id="h22c">—</div></div>
-    <div class="qc"><div class="qc-k">٢١ قيراط</div><div class="qc-p" id="h21">—</div><div class="qc-u">ر.س / جرام</div><div class="qc-ch up" id="h21c">—</div></div>
-    <div class="qc"><div class="qc-k">١٨ قيراط</div><div class="qc-p" id="h18">—</div><div class="qc-u">ر.س / جرام</div><div class="qc-ch up" id="h18c">—</div></div>
-    <div class="qc"><div class="qc-k">١٤ قيراط</div><div class="qc-p" id="h14">—</div><div class="qc-u">ر.س / جرام</div><div class="qc-ch up" id="h14c">—</div></div>
-    <div class="qc"><div class="qc-k">١٠ قيراط</div><div class="qc-p" id="h10">—</div><div class="qc-u">ر.س / جرام</div><div class="qc-ch up" id="h10c">—</div></div>
-  </div>
-  <div class="qcalc-wrap">
-    <div class="ql" style="margin-bottom:.85rem">💰 حاسبة الذهب السريعة</div>
-    <div class="qcalc">
-      <div><label>الوزن</label><input type="number" id="qw" value="1" min="0" step="0.01"/></div>
-      <div><label>الوحدة</label>
-        <select id="qu">
-          <option value="1">جرام</option>
-          <option value="31.1034768">أونصة</option>
-          <option value="4.25">مثقال</option>
-          <option value="11.6638">تولة</option>
-          <option value="1000">كيلوجرام</option>
-        </select>
-      </div>
-      <div><label>العيار</label>
-        <select id="qk">
-          <option value="1">٢٤ قيراط</option>
-          <option value="0.9167">٢٢ قيراط</option>
-          <option value="0.875" selected>٢١ قيراط</option>
-          <option value="0.75">١٨ قيراط</option>
-          <option value="0.5833">١٤ قيراط</option>
-          <option value="0.5">١٢ قيراط</option>
-          <option value="0.4167">١٠ قيراط</option>
-        </select>
-      </div>
-      <div><label>العملة</label>
-        <select id="qc_s">
-          <option value="SAR">ريال سعودي</option>
-          <option value="AED">درهم</option>
-          <option value="KWD">دينار كويتي</option>
-          <option value="QAR">ريال قطري</option>
-          <option value="BHD">دينار بحريني</option>
-          <option value="OMR">ريال عماني</option>
-          <option value="USD">دولار</option>
-        </select>
-      </div>
-      <button class="btn-g" onclick="quickCalc()">احسب ←</button>
+    <div class="qc">
+      <div class="qc-k" data-tip="٢٤ قيراط — نقاء ٩٩٩.٩">٢٤ قيراط</div>
+      <div class="qc-p" id="h24">—</div><div class="qc-u">ر.س / جرام</div><div class="qc-ch up" id="h24c">—</div>
     </div>
-    <div class="qresult" id="qres">
-      <div class="qr-label">إجمالي السعر</div>
-      <div class="qr-val" id="qrv">—</div>
-      <div class="qr-note" id="qrn">—</div>
+    <div class="qc">
+      <div class="qc-k" data-tip="٢٢ قيراط — نقاء ٩١٦.٧">٢٢ قيراط</div>
+      <div class="qc-p" id="h22">—</div><div class="qc-u">ر.س / جرام</div><div class="qc-ch up" id="h22c">—</div>
+    </div>
+    <div class="qc">
+      <div class="qc-k" data-tip="٢١ قيراط — نقاء ٨٧٥.٠">٢١ قيراط</div>
+      <div class="qc-p" id="h21">—</div><div class="qc-u">ر.س / جرام</div><div class="qc-ch up" id="h21c">—</div>
+    </div>
+    <div class="qc">
+      <div class="qc-k" data-tip="١٨ قيراط — نقاء ٧٥٠.٠">١٨ قيراط</div>
+      <div class="qc-p" id="h18">—</div><div class="qc-u">ر.س / جرام</div><div class="qc-ch up" id="h18c">—</div>
+    </div>
+    <div class="qc">
+      <div class="qc-k" data-tip="١٤ قيراط — نقاء ٥٨٣.٣">١٤ قيراط</div>
+      <div class="qc-p" id="h14">—</div><div class="qc-u">ر.س / جرام</div><div class="qc-ch up" id="h14c">—</div>
+    </div>
+    <div class="qc">
+      <div class="qc-k" data-tip="١٠ قيراط — نقاء ٤١٦.٧">١٠ قيراط</div>
+      <div class="qc-p" id="h10">—</div><div class="qc-u">ر.س / جرام</div><div class="qc-ch up" id="h10c">—</div>
     </div>
   </div>
 </div>
@@ -516,21 +528,80 @@ footer{background:var(--dark);color:rgba(255,255,255,0.7);padding:2rem 4vw;text-
   </a>
 </footer>
 
+<!-- FLOATING CALCULATOR BUTTON -->
+<button id="float-calc-btn" onclick="openCalcModal()" aria-label="فتح حاسبة الذهب">
+  <div class="fcb-circle">🧮</div>
+  <span class="fcb-label">حاسبة</span>
+</button>
+
+<!-- CALCULATOR MODAL -->
+<div id="calc-modal-overlay" onclick="closeCalcModalOutside(event)">
+  <div class="calc-modal">
+    <button class="calc-modal-close" onclick="closeCalcModal()">✕</button>
+    <div class="calc-modal-title">🧮 حاسبة الذهب السريعة</div>
+    <div class="calc-modal-sub">احسب سعر أي وزن وعيار وعملة بسرعة</div>
+    <div class="modal-qcalc">
+      <div class="fg">
+        <label>الوزن</label>
+        <input type="number" id="mq_w" value="1" min="0" step="0.01"/>
+      </div>
+      <div class="fg">
+        <label>الوحدة</label>
+        <select id="mq_u">
+          <option value="1">جرام</option>
+          <option value="31.1034768">أونصة</option>
+          <option value="4.25">مثقال</option>
+          <option value="11.6638">تولة</option>
+          <option value="1000">كيلوجرام</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label>العيار</label>
+        <select id="mq_k">
+          <option value="1">٢٤ قيراط</option>
+          <option value="0.9167">٢٢ قيراط</option>
+          <option value="0.875" selected>٢١ قيراط</option>
+          <option value="0.75">١٨ قيراط</option>
+          <option value="0.5833">١٤ قيراط</option>
+          <option value="0.5">١٢ قيراط</option>
+          <option value="0.4167">١٠ قيراط</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label>العملة</label>
+        <select id="mq_c">
+          <option value="SAR">ريال سعودي</option>
+          <option value="AED">درهم</option>
+          <option value="KWD">دينار كويتي</option>
+          <option value="QAR">ريال قطري</option>
+          <option value="BHD">دينار بحريني</option>
+          <option value="OMR">ريال عماني</option>
+          <option value="USD">دولار</option>
+        </select>
+      </div>
+      <div class="fg full">
+        <button class="btn-g full" onclick="modalCalc()">احسب السعر ←</button>
+      </div>
+    </div>
+    <div class="modal-result" id="mq_res">
+      <div class="mr-label">إجمالي السعر</div>
+      <div class="mr-val" id="mq_val">—</div>
+      <div class="mr-note" id="mq_note">—</div>
+    </div>
+  </div>
+</div>
+
 <script>
-// ── DATA ──────────────────────────────────────────────────
 const R={SAR:3.75,AED:3.67,KWD:0.307,QAR:3.64,BHD:0.376,OMR:0.385,USD:1};
 const S={SAR:'ر.س',AED:'د.إ',KWD:'د.ك',QAR:'ر.ق',BHD:'د.ب',OMR:'ر.ع',USD:'$'};
 const K=[{k:24,l:'٢٤ قيراط',p:1},{k:22,l:'٢٢ قيراط',p:22/24},{k:21,l:'٢١ قيراط',p:21/24},{k:18,l:'١٨ قيراط',p:18/24},{k:14,l:'١٤ قيراط',p:14/24},{k:12,l:'١٢ قيراط',p:12/24},{k:10,l:'١٠ قيراط',p:10/24}];
 const W={g:1,oz:31.1034768,mithqal:4.25,tola:11.6638,kg:1000};
 const WL={g:'جرام',oz:'أونصة',mithqal:'مثقال',tola:'تولة',kg:'كيلوجرام'};
-const DAYS=['الأحد','الإثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'];
 const SILVER_W=[{id:'g',l:'جرام'},{id:'oz',l:'أونصة'},{id:'kg',l:'كيلوجرام'},{id:'tola',l:'تولة'},{id:'mithqal',l:'مثقال'}];
 
-// Fallback: gold ~$3300/oz = ~$106.1/g | silver ~$33/oz = ~$1.06/g (June 2026)
 let st={p:106.1,prev:105.4,open:105.6,high:107.2,low:104.8,curr:'SAR',wt:'g',ts:null};
 let sv={p:1.062,prev:1.048,sCurr:'SAR'};
 
-// ── API ──────────────────────────────────────────────────
 async function load(){
   try{
     const [gr,sr]=await Promise.all([
@@ -544,19 +615,19 @@ async function load(){
   render();
 }
 
-// ── HELPERS ──────────────────────────────────────────────
 function n(v,d=2){return v.toLocaleString('ar-SA',{minimumFractionDigits:d,maximumFractionDigits:d})}
 function gp(purity,curr,wk='g'){return st.p*purity*R[curr]*W[wk]}
 function pct(){return((st.p-st.prev)/st.prev)*100}
 function spct(){return((sv.p-sv.prev)/sv.prev)*100}
 
-// ── RENDER ──────────────────────────────────────────────
+function animNum(el){if(!el)return;el.classList.remove('updated');void el.offsetWidth;el.classList.add('updated');}
+
 function render(){
   const pc=pct(),up=pc>=0;
   [{k:24,p:1},{k:22,p:22/24},{k:21,p:21/24},{k:18,p:18/24},{k:14,p:14/24},{k:10,p:10/24}].forEach(({k,p})=>{
     const el=document.getElementById('h'+k);
     const ce=document.getElementById('h'+k+'c');
-    if(el)el.textContent=n(st.p*p*R['SAR']);
+    if(el){el.textContent=n(st.p*p*R['SAR']);animNum(el);}
     if(ce){ce.textContent=(up?'▲':'▼')+' '+Math.abs(pc).toFixed(2)+'%';ce.className='qc-ch '+(up?'up':'down');}
   });
   const ts=st.ts?'آخر تحديث: '+st.ts.toLocaleTimeString('ar-SA'):'—';
@@ -571,12 +642,7 @@ function renderGrid(){
   document.getElementById('pgrid').innerHTML=K.map(({k,l,p})=>{
     const price=gp(p,curr,wk);
     const chgAbs=(st.p*p-st.prev*p)*R[curr]*W[wk];
-    return`<div class="pc">
-      <div class="pc-k">${l}</div>
-      <div class="pc-v">${n(price)}</div>
-      <div class="pc-u">${S[curr]} / ${WL[wk]}</div>
-      <div class="pc-c ${up?'up':'down'}">${up?'▲':'▼'} ${n(Math.abs(chgAbs))} (${Math.abs(pc).toFixed(2)}%)</div>
-    </div>`;
+    return`<div class="pc"><div class="pc-k">${l}</div><div class="pc-v">${n(price)}</div><div class="pc-u">${S[curr]} / ${WL[wk]}</div><div class="pc-c ${up?'up':'down'}">${up?'▲':'▼'} ${n(Math.abs(chgAbs))} (${Math.abs(pc).toFixed(2)}%)</div></div>`;
   }).join('');
 }
 
@@ -586,12 +652,7 @@ function renderSilver(){
   document.getElementById('silverTs').textContent=ts;
   document.getElementById('sgrid').innerHTML=SILVER_W.map(({id,l})=>{
     const wv=W[id],price=sv.p*R[curr]*wv,chgAbs=(sv.p-sv.prev)*R[curr]*wv;
-    return`<div class="sc">
-      <div class="sc-k">${l}</div>
-      <div class="sc-v">${n(price)}</div>
-      <div class="sc-u">${S[curr]}</div>
-      <div class="sc-c ${up?'up':'down'}">${up?'▲':'▼'} ${n(Math.abs(chgAbs))} (${Math.abs(pc).toFixed(2)}%)</div>
-    </div>`;
+    return`<div class="sc"><div class="sc-k">${l}</div><div class="sc-v">${n(price)}</div><div class="sc-u">${S[curr]}</div><div class="sc-c ${up?'up':'down'}">${up?'▲':'▼'} ${n(Math.abs(chgAbs))} (${Math.abs(pc).toFixed(2)}%)</div></div>`;
   }).join('');
 }
 
@@ -639,7 +700,6 @@ function renderMonthChart(){
   const CW=el.offsetWidth,H=210,pad={t:20,r:20,b:40,l:62};
   const cW=CW-pad.l-pad.r,cH=H-pad.t-pad.b;
   ctx.clearRect(0,0,CW,H);
-  // Generate 30 days of simulated data
   const base=st.p*R['SAR'];
   const prices=[];
   for(let i=29;i>=0;i--){
@@ -649,53 +709,51 @@ function renderMonthChart(){
   const mn=Math.min(...prices)*0.9992,mx=Math.max(...prices)*1.0008;
   const tx=i=>pad.l+(i/(prices.length-1))*cW;
   const ty=v=>pad.t+(1-(v-mn)/(mx-mn))*cH;
-  // Grid lines
   ctx.strokeStyle='rgba(184,146,42,0.1)';ctx.lineWidth=1;
   for(let i=0;i<=4;i++){
     const y=pad.t+(i/4)*cH;
     ctx.beginPath();ctx.moveTo(pad.l,y);ctx.lineTo(pad.l+cW,y);ctx.stroke();
     const val=mx-(i/4)*(mx-mn);
-    ctx.fillStyle='#9a7a54';ctx.font=`11px Almarai`;ctx.textAlign='right';ctx.fillText(n(val,0),pad.l-6,y+4);
+    ctx.fillStyle='#9a7a54';ctx.font='11px Almarai';ctx.textAlign='right';ctx.fillText(n(val,0),pad.l-6,y+4);
   }
-  // Fill
   const grad=ctx.createLinearGradient(0,pad.t,0,pad.t+cH);
   grad.addColorStop(0,'rgba(184,146,42,0.18)');grad.addColorStop(1,'rgba(184,146,42,0.02)');
   ctx.beginPath();ctx.moveTo(tx(0),ty(prices[0]));
   prices.forEach((p,i)=>{if(i>0)ctx.lineTo(tx(i),ty(p));});
   ctx.lineTo(tx(prices.length-1),pad.t+cH);ctx.lineTo(tx(0),pad.t+cH);ctx.closePath();
   ctx.fillStyle=grad;ctx.fill();
-  // Line
   ctx.beginPath();ctx.moveTo(tx(0),ty(prices[0]));
   prices.forEach((p,i)=>{if(i>0)ctx.lineTo(tx(i),ty(p));});
   ctx.strokeStyle='#b8922a';ctx.lineWidth=2.5;ctx.lineJoin='round';ctx.stroke();
-  // Week labels
   ctx.fillStyle='#9a7a54';ctx.font='10px Almarai';ctx.textAlign='center';
   [0,7,14,21,29].forEach(i=>{
     const d=new Date();d.setDate(d.getDate()-(29-i));
     ctx.fillText(d.getDate()+'/'+(d.getMonth()+1),tx(i),H-10);
   });
-  // Last dot
   ctx.beginPath();ctx.arc(tx(prices.length-1),ty(prices[prices.length-1]),5,0,Math.PI*2);
   ctx.fillStyle='#b8922a';ctx.fill();
 }
 
-// ── CONTROLS ──────────────────────────────────────────────
 function setCurr(btn,c){document.querySelectorAll('#cTabs .tab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');st.curr=c;renderGrid();}
 function setW(btn,w){document.querySelectorAll('.wtab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');st.wt=w;renderGrid();}
 function setSilverCurr(btn,c){document.querySelectorAll('#sTabs .tab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');sv.sCurr=c;renderSilver();}
 
-// ── CALCS ──────────────────────────────────────────────
-function quickCalc(){
-  const wt=parseFloat(document.getElementById('qw').value)||0;
-  const un=parseFloat(document.getElementById('qu').value);
-  const ka=parseFloat(document.getElementById('qk').value);
-  const cu=document.getElementById('qc_s').value;
+function openCalcModal(){document.getElementById('calc-modal-overlay').classList.add('open');document.body.style.overflow='hidden';}
+function closeCalcModal(){document.getElementById('calc-modal-overlay').classList.remove('open');document.body.style.overflow='';}
+function closeCalcModalOutside(e){if(e.target===document.getElementById('calc-modal-overlay'))closeCalcModal();}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeCalcModal();});
+
+function modalCalc(){
+  const wt=parseFloat(document.getElementById('mq_w').value)||0;
+  const un=parseFloat(document.getElementById('mq_u').value);
+  const ka=parseFloat(document.getElementById('mq_k').value);
+  const cu=document.getElementById('mq_c').value;
   const total=st.p*ka*R[cu]*wt*un;
-  const ul=document.getElementById('qu').options[document.getElementById('qu').selectedIndex].text;
-  const kl=document.getElementById('qk').options[document.getElementById('qk').selectedIndex].text;
-  document.getElementById('qrv').textContent=n(total)+' '+S[cu];
-  document.getElementById('qrn').textContent=wt+' '+ul+' · '+kl+' · '+n(st.p*ka*R[cu])+' '+S[cu]+'/جرام';
-  document.getElementById('qres').classList.add('show');
+  const ul=document.getElementById('mq_u').options[document.getElementById('mq_u').selectedIndex].text;
+  const kl=document.getElementById('mq_k').options[document.getElementById('mq_k').selectedIndex].text;
+  document.getElementById('mq_val').textContent=n(total)+' '+S[cu];
+  document.getElementById('mq_note').textContent=wt+' '+ul+' · '+kl+' · '+n(st.p*ka*R[cu])+' '+S[cu]+'/جرام';
+  document.getElementById('mq_res').classList.add('show');
 }
 
 function calcPrice(){
@@ -741,7 +799,6 @@ function calcZakat(){
 const IDS=['i1','i2','i3','i4','i5','i6','i7','i8'];
 function tog(id){const open=document.getElementById(id).classList.contains('show');IDS.forEach(i=>document.getElementById(i).classList.remove('show'));if(!open){document.getElementById(id).classList.add('show');document.getElementById(id).scrollIntoView({behavior:'smooth',block:'nearest'});}}
 
-// ── 3D PARTICLES ──────────────────────────────────────────
 function initParticles(){
   const cont=document.getElementById('ptcl');
   const colors=['rgba(184,146,42,0.35)','rgba(212,168,60,0.25)','rgba(240,200,74,0.2)','rgba(184,146,42,0.15)'];
@@ -754,7 +811,6 @@ function initParticles(){
   }
 }
 
-// ── SCROLL REVEAL ─────────────────────────────────────────
 const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('vis'),i*70);obs.unobserve(e.target);}});},{threshold:0.06});
 document.querySelectorAll('.fi').forEach(el=>obs.observe(el));
 

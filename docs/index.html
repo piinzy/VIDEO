@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>الديري | أسعار الذهب والفضة في الخليج</title>
 <meta name="description" content="أسعار الذهب والفضة اليوم - جميع العيارات - حاسبة الزكاة - حاسبة الأسعار - الديري"/>
-<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Aref+Ruqaa+Ink:wght@400;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet"/>
 <style id="brand-font">
-.brand-name{font-family:'Aref Ruqaa Ink',serif;font-weight:700;letter-spacing:.08em;background:linear-gradient(135deg,#8a6820,#c4983a,#e8c060,#c4983a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.brand-name{font-family:'Almarai',sans-serif;font-weight:800;color:var(--dark);letter-spacing:.06em;font-size:inherit}
 </style>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -526,8 +526,9 @@ const WL={g:'جرام',oz:'أونصة',mithqal:'مثقال',tola:'تولة',kg:'
 const DAYS=['الأحد','الإثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'];
 const SILVER_W=[{id:'g',l:'جرام'},{id:'oz',l:'أونصة'},{id:'kg',l:'كيلوجرام'},{id:'tola',l:'تولة'},{id:'mithqal',l:'مثقال'}];
 
-let st={p:98.5,prev:97.8,open:97.9,high:99.1,low:97.5,curr:'SAR',wt:'g',ts:null};
-let sv={p:1.15,prev:1.13,sCurr:'SAR'};
+// Fallback: gold ~$3300/oz = ~$106.1/g | silver ~$33/oz = ~$1.06/g (June 2026)
+let st={p:106.1,prev:105.4,open:105.6,high:107.2,low:104.8,curr:'SAR',wt:'g',ts:null};
+let sv={p:1.062,prev:1.048,sCurr:'SAR'};
 
 // ── API ──────────────────────────────────────────────────
 async function load(){
@@ -538,7 +539,7 @@ async function load(){
     ]);
     if(gr.ok){const d=await gr.json();st.p=d.price/31.1034768;st.prev=(d.prev_close_price||d.price*0.995)/31.1034768;st.open=(d.open_price||d.price*0.998)/31.1034768;st.high=(d.high_price||d.price*1.005)/31.1034768;st.low=(d.low_price||d.price*0.993)/31.1034768;}
     if(sr.ok){const d=await sr.json();sv.p=d.price/31.1034768;sv.prev=(d.prev_close_price||d.price*0.995)/31.1034768;}
-  }catch(e){console.warn('fallback prices')}
+  }catch(e){console.warn('API error, using fallback:',e.message)}
   st.ts=new Date();
   render();
 }

@@ -590,23 +590,34 @@ let sv={p:1.078,prev:1.065,sCurr:'SAR'};
 
 async function load(){
   try{
-    // Primary: metals.live (free, no auth)
-    const res=await fetch('https://api.metals.live/v1/spot/gold,silver');
+    // Primary: goldprice.org — same data source as TradingView
+    const res=await fetch('https://data-asg.goldprice.org/dbXRates/USD');
     if(res.ok){
       const d=await res.json();
-      const g=d.gold||d[0]?.gold;const s=d.silver||d[1]?.silver||d[0]?.silver;
-      if(g){st.p=g/31.1034768;st.prev=st.p*0.9985;st.open=st.p*0.9990;st.high=st.p*1.0035;st.low=st.p*0.9960;}
-      if(s){sv.p=s/31.1034768;sv.prev=sv.p*0.9985;}
+      const item=d.items&&d.items[0];
+      if(item&&item.xauPrice){
+        const oz=31.1034768;
+        st.p=item.xauPrice/oz;
+        st.prev=(item.xauPrice-item.chgXau)/oz;
+        st.open=st.prev;
+        st.high=st.p*1.003;
+        st.low=st.p*0.997;
+      }
+      if(item&&item.xagPrice){
+        sv.p=item.xagPrice/31.1034768;
+        sv.prev=(item.xagPrice-item.chgXag)/31.1034768;
+      }
     }
   }catch(e){
     try{
-      // Fallback: GoldAPI
-      const [gr,sr]=await Promise.all([
-        fetch('https://www.goldapi.io/api/XAU/USD',{headers:{'x-access-token':'goldapi-c8bfcdd897d3aa82798ddfefc685eb5c-io'}}),
-        fetch('https://www.goldapi.io/api/XAG/USD',{headers:{'x-access-token':'goldapi-c8bfcdd897d3aa82798ddfefc685eb5c-io'}})
-      ]);
-      if(gr.ok){const d=await gr.json();st.p=d.price/31.1034768;st.prev=(d.prev_close_price||d.price*0.995)/31.1034768;st.open=(d.open_price||d.price*0.998)/31.1034768;st.high=(d.high_price||d.price*1.005)/31.1034768;st.low=(d.low_price||d.price*0.993)/31.1034768;}
-      if(sr.ok){const d=await sr.json();sv.p=d.price/31.1034768;sv.prev=(d.prev_close_price||d.price*0.995)/31.1034768;}
+      // Fallback: metals.live
+      const res2=await fetch('https://api.metals.live/v1/spot/gold,silver');
+      if(res2.ok){
+        const d=await res2.json();
+        const g=d.gold||d[0]?.gold;const s=d.silver||d[1]?.silver||d[0]?.silver;
+        if(g){st.p=g/31.1034768;st.prev=st.p*0.9985;st.open=st.p*0.9990;st.high=st.p*1.003;st.low=st.p*0.997;}
+        if(s){sv.p=s/31.1034768;sv.prev=sv.p*0.9985;}
+      }
     }catch(e2){console.warn('All APIs failed, using fallback prices');}
   }
   st.ts=new Date();

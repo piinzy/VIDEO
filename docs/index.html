@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>النقيب | أسعار الذهب والفضة في الخليج</title>
 <meta name="description" content="أسعار الذهب والفضة اليوم - جميع العيارات - حاسبة الزكاة - النقيب"/>
-<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet"/>
 <style id="brand-font">
 .deer-name{font-family:'Almarai',sans-serif;font-weight:800;color:var(--dark);display:inline-block;line-height:1;-webkit-font-smoothing:antialiased}
 
@@ -367,16 +367,33 @@ footer{background:var(--dark);color:rgba(255,255,255,0.7);padding:2rem 4vw;text-
 
 <div class="divider"></div>
 
-<!-- MONTHLY CHART -->
+<!-- MONTHLY CHART - TradingView -->
 <section class="sec fi">
   <div class="sec-head">
     <div class="sec-label">حركة السوق</div>
-    <div class="sec-title">حركة الذهب خلال الشهر</div>
-    <div class="sec-sub">رسم بياني تقريبي — عيار ٢٤ — ريال سعودي</div>
+    <div class="sec-title">حركة الذهب — TradingView</div>
+    <div class="sec-sub">مصدر مباشر من TradingView • الذهب العالمي XAU/USD</div>
   </div>
-  <div class="chart-wrap">
-    <div class="chart-title">سعر جرام الذهب ٢٤ قيراط — آخر ٣٠ يوماً (ر.س)</div>
-    <canvas id="chartMonth" style="width:100%;height:210px;display:block"></canvas>
+  <div class="chart-wrap" style="padding:0;overflow:hidden;min-height:300px">
+    <div class="tradingview-widget-container" style="height:300px;width:100%">
+      <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+      {
+        "symbol": "TVC:GOLD",
+        "width": "100%",
+        "height": "300",
+        "locale": "ar",
+        "dateRange": "1M",
+        "colorTheme": "light",
+        "trendLineColor": "#b8922a",
+        "underLineColor": "rgba(184,146,42,0.08)",
+        "underLineBottomColor": "rgba(184,146,42,0)",
+        "isTransparent": true,
+        "autosize": true,
+        "largeChartUrl": ""
+      }
+      </script>
+    </div>
   </div>
 </section>
 
@@ -573,13 +590,25 @@ let sv={p:1.078,prev:1.065,sCurr:'SAR'};
 
 async function load(){
   try{
-    const [gr,sr]=await Promise.all([
-      fetch('https://www.goldapi.io/api/XAU/USD',{headers:{'x-access-token':'goldapi-c8bfcdd897d3aa82798ddfefc685eb5c-io'}}),
-      fetch('https://www.goldapi.io/api/XAG/USD',{headers:{'x-access-token':'goldapi-c8bfcdd897d3aa82798ddfefc685eb5c-io'}})
-    ]);
-    if(gr.ok){const d=await gr.json();st.p=d.price/31.1034768;st.prev=(d.prev_close_price||d.price*0.995)/31.1034768;st.open=(d.open_price||d.price*0.998)/31.1034768;st.high=(d.high_price||d.price*1.005)/31.1034768;st.low=(d.low_price||d.price*0.993)/31.1034768;}
-    if(sr.ok){const d=await sr.json();sv.p=d.price/31.1034768;sv.prev=(d.prev_close_price||d.price*0.995)/31.1034768;}
-  }catch(e){console.warn('API error, using fallback:',e.message)}
+    // Primary: metals.live (free, no auth)
+    const res=await fetch('https://api.metals.live/v1/spot/gold,silver');
+    if(res.ok){
+      const d=await res.json();
+      const g=d.gold||d[0]?.gold;const s=d.silver||d[1]?.silver||d[0]?.silver;
+      if(g){st.p=g/31.1034768;st.prev=st.p*0.9985;st.open=st.p*0.9990;st.high=st.p*1.0035;st.low=st.p*0.9960;}
+      if(s){sv.p=s/31.1034768;sv.prev=sv.p*0.9985;}
+    }
+  }catch(e){
+    try{
+      // Fallback: GoldAPI
+      const [gr,sr]=await Promise.all([
+        fetch('https://www.goldapi.io/api/XAU/USD',{headers:{'x-access-token':'goldapi-c8bfcdd897d3aa82798ddfefc685eb5c-io'}}),
+        fetch('https://www.goldapi.io/api/XAG/USD',{headers:{'x-access-token':'goldapi-c8bfcdd897d3aa82798ddfefc685eb5c-io'}})
+      ]);
+      if(gr.ok){const d=await gr.json();st.p=d.price/31.1034768;st.prev=(d.prev_close_price||d.price*0.995)/31.1034768;st.open=(d.open_price||d.price*0.998)/31.1034768;st.high=(d.high_price||d.price*1.005)/31.1034768;st.low=(d.low_price||d.price*0.993)/31.1034768;}
+      if(sr.ok){const d=await sr.json();sv.p=d.price/31.1034768;sv.prev=(d.prev_close_price||d.price*0.995)/31.1034768;}
+    }catch(e2){console.warn('All APIs failed, using fallback prices');}
+  }
   st.ts=new Date();
   render();
 }
@@ -603,7 +632,7 @@ function render(){
   document.getElementById('heroTs').textContent=ts;
   document.getElementById('pricesTs').textContent=ts+' • يتحدث كل ٥ دقائق';
   document.getElementById('navTicker').textContent='ذهب ٢٤ · '+n(gp(1,'SAR'))+' ر.س · '+(up?'▲':'▼')+Math.abs(pc).toFixed(2)+'%';
-  renderGrid();renderSilver();renderStats();renderHistory();renderMonthChart();
+  renderGrid();renderSilver();renderStats();renderHistory();
 }
 
 function renderGrid(){
@@ -659,49 +688,6 @@ function renderHistory(){
   }).join('');
 }
 
-function renderMonthChart(){
-  const el=document.getElementById('chartMonth');
-  if(!el)return;
-  const ctx=el.getContext('2d');
-  const dpr=window.devicePixelRatio||1;
-  el.width=el.offsetWidth*dpr;el.height=210*dpr;
-  ctx.scale(dpr,dpr);
-  const CW=el.offsetWidth,H=210,pad={t:20,r:20,b:40,l:62};
-  const cW=CW-pad.l-pad.r,cH=H-pad.t-pad.b;
-  ctx.clearRect(0,0,CW,H);
-  const base=st.p*R['SAR'];
-  const prices=[];
-  for(let i=29;i>=0;i--){
-    const drift=Math.sin(i*0.4)*0.012+Math.cos(i*0.7)*0.008+(i%7)*0.001;
-    prices.push(base*(1+(i===0?0:drift)));
-  }
-  const mn=Math.min(...prices)*0.9992,mx=Math.max(...prices)*1.0008;
-  const tx=i=>pad.l+(i/(prices.length-1))*cW;
-  const ty=v=>pad.t+(1-(v-mn)/(mx-mn))*cH;
-  ctx.strokeStyle='rgba(184,146,42,0.1)';ctx.lineWidth=1;
-  for(let i=0;i<=4;i++){
-    const y=pad.t+(i/4)*cH;
-    ctx.beginPath();ctx.moveTo(pad.l,y);ctx.lineTo(pad.l+cW,y);ctx.stroke();
-    const val=mx-(i/4)*(mx-mn);
-    ctx.fillStyle='#9a7a54';ctx.font='11px Almarai';ctx.textAlign='right';ctx.fillText(n(val,0),pad.l-6,y+4);
-  }
-  const grad=ctx.createLinearGradient(0,pad.t,0,pad.t+cH);
-  grad.addColorStop(0,'rgba(184,146,42,0.18)');grad.addColorStop(1,'rgba(184,146,42,0.02)');
-  ctx.beginPath();ctx.moveTo(tx(0),ty(prices[0]));
-  prices.forEach((p,i)=>{if(i>0)ctx.lineTo(tx(i),ty(p));});
-  ctx.lineTo(tx(prices.length-1),pad.t+cH);ctx.lineTo(tx(0),pad.t+cH);ctx.closePath();
-  ctx.fillStyle=grad;ctx.fill();
-  ctx.beginPath();ctx.moveTo(tx(0),ty(prices[0]));
-  prices.forEach((p,i)=>{if(i>0)ctx.lineTo(tx(i),ty(p));});
-  ctx.strokeStyle='#b8922a';ctx.lineWidth=2.5;ctx.lineJoin='round';ctx.stroke();
-  ctx.fillStyle='#9a7a54';ctx.font='10px Almarai';ctx.textAlign='center';
-  [0,7,14,21,29].forEach(i=>{
-    const d=new Date();d.setDate(d.getDate()-(29-i));
-    ctx.fillText(d.getDate()+'/'+(d.getMonth()+1),tx(i),H-10);
-  });
-  ctx.beginPath();ctx.arc(tx(prices.length-1),ty(prices[prices.length-1]),5,0,Math.PI*2);
-  ctx.fillStyle='#b8922a';ctx.fill();
-}
 
 function setCurr(btn,c){document.querySelectorAll('#cTabs .tab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');st.curr=c;renderGrid();}
 function setW(btn,w){document.querySelectorAll('.wtab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');st.wt=w;renderGrid();}
@@ -783,7 +769,7 @@ function initParticles(){
 const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('vis'),i*70);obs.unobserve(e.target);}});},{threshold:0.06});
 document.querySelectorAll('.fi').forEach(el=>obs.observe(el));
 
-window.addEventListener('resize',()=>{if(st.ts){renderMonthChart();}});
+
 
 initParticles();
 load();

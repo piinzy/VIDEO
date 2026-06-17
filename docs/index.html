@@ -30,7 +30,7 @@ body{font-family:'Almarai',sans-serif;background:var(--cream);color:var(--dark);
 /* NAV */
 nav{position:sticky;top:0;z-index:999;background:rgba(253,246,237,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:.8rem 4vw;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;box-shadow:0 2px 20px var(--shadow)}
 .nav-brand{display:flex;align-items:center;gap:.7rem;flex:1}
-.nav-logo{width:40px;height:40px;background:linear-gradient(135deg,var(--gold),var(--gold3));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;box-shadow:0 4px 14px rgba(184,146,42,0.4);animation:logoPulse 3s ease infinite}
+.nav-logo{width:44px;height:44px;display:flex;align-items:center;justify-content:center;flex-shrink:0;animation:logoPulse 3s ease infinite;filter:drop-shadow(0 3px 8px rgba(184,146,42,0.45))}
 @keyframes logoPulse{0%,100%{box-shadow:0 4px 14px rgba(184,146,42,0.4)}50%{box-shadow:0 4px 22px rgba(184,146,42,0.7)}}
 .nav-title{font-size:1.05rem;font-weight:800;color:var(--dark)}
 .nav-title span{color:var(--muted);font-weight:300;font-size:.7rem;display:block;margin-top:-3px}
@@ -212,7 +212,17 @@ footer{background:var(--dark);color:rgba(255,255,255,0.7);padding:2rem 4vw;text-
 
 <nav>
   <div class="nav-brand">
-    <div class="nav-logo">⬡</div>
+    <div class="nav-logo">
+      <svg width="44" height="44" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="45" stroke="#c4983a" stroke-width="3"/>
+        <path d="M50,14 C29,14 17,30 17,47 C17,62 27,72 41,77" stroke="#c4983a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M50,14 C71,14 83,30 83,47 C83,62 73,72 59,77" stroke="#c4983a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M41,77 Q41,88 50,92 Q59,88 59,77" stroke="#c4983a" stroke-width="2.6" stroke-linecap="round"/>
+        <line x1="50" y1="14" x2="50" y2="92" stroke="#c4983a" stroke-width="2" opacity="0.55"/>
+        <path d="M28,53 L50,77 L72,53" stroke="#c4983a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="50" cy="47" r="5" stroke="#c4983a" stroke-width="2" opacity="0.7"/>
+      </svg>
+    </div>
     <div class="nav-title">الديري<span>أسعار الذهب والفضة الآن</span></div>
   </div>
   <div class="nav-live"><div class="live-dot"></div>مباشر</div>
@@ -221,6 +231,17 @@ footer{background:var(--dark);color:rgba(255,255,255,0.7);padding:2rem 4vw;text-
 
 <!-- HERO -->
 <section id="hero">
+  <div style="display:flex;justify-content:center;margin-bottom:.8rem">
+    <svg width="72" height="72" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 6px 18px rgba(184,146,42,0.35));animation:logoPulse 3s ease infinite">
+      <circle cx="50" cy="50" r="45" stroke="#c4983a" stroke-width="2.8"/>
+      <path d="M50,14 C29,14 17,30 17,47 C17,62 27,72 41,77" stroke="#c4983a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M50,14 C71,14 83,30 83,47 C83,62 73,72 59,77" stroke="#c4983a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M41,77 Q41,88 50,92 Q59,88 59,77" stroke="#c4983a" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="50" y1="14" x2="50" y2="92" stroke="#c4983a" stroke-width="1.8" opacity="0.5"/>
+      <path d="M28,53 L50,77 L72,53" stroke="#c4983a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="50" cy="47" r="5.5" stroke="#c4983a" stroke-width="2" opacity="0.65"/>
+    </svg>
+  </div>
   <div class="hero-badge">⬡ يتحدث تلقائياً كل ٥ دقائق • المصدر: سعر الذهب العالمي</div>
   <h1 class="hero-h">أسعار الذهب والفضة<br/><em>في الخليج والعالم</em></h1>
   <p class="hero-sub">جميع العيارات • جميع العملات الخليجية والدولار • أسعار حية محدّثة</p>
@@ -468,7 +489,18 @@ footer{background:var(--dark);color:rgba(255,255,255,0.7);padding:2rem 4vw;text-
 </section>
 
 <footer>
-  <div class="f-logo">⬡ الديري</div>
+  <div class="f-logo" style="display:flex;align-items:center;justify-content:center;gap:.6rem">
+    <svg width="34" height="34" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="45" stroke="#d4a83c" stroke-width="3"/>
+      <path d="M50,14 C29,14 17,30 17,47 C17,62 27,72 41,77" stroke="#d4a83c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M50,14 C71,14 83,30 83,47 C83,62 73,72 59,77" stroke="#d4a83c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M41,77 Q41,88 50,92 Q59,88 59,77" stroke="#d4a83c" stroke-width="2.6" stroke-linecap="round"/>
+      <line x1="50" y1="14" x2="50" y2="92" stroke="#d4a83c" stroke-width="2" opacity="0.55"/>
+      <path d="M28,53 L50,77 L72,53" stroke="#d4a83c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="50" cy="47" r="5" stroke="#d4a83c" stroke-width="2" opacity="0.7"/>
+    </svg>
+    الديري
+  </div>
   <div class="f-copy">
     جميع الأسعار مصدرها سعر الذهب العالمي (London Fix / COMEX) محوّلاً بأسعار الصرف الرسمية<br/>
     يتحدث تلقائياً كل ٥ دقائق • للاستعلام فقط<br/>
